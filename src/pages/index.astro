@@ -3,12 +3,16 @@ import Layout from '../layouts/Layout.astro';
 import Becas from '@/components/main/beca/index_becas.astro';
 import Header from '@/components/header.astro';
 import Main from '@/components//main/main/index_main.astro';
+import Carrusel from '@/components/main/carrusel/index_carrusel.astro';
 ---
 
 <Layout>
 	<Header />
 	<div class="mt-20">
 		<Main />
+	</div>
+	<div class="mt-20">
+		<Carrusel />
 	</div>
 	<Becas />
 </Layout>
