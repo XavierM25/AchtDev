@@ -6,7 +6,7 @@ export default {
   theme: {
     extend: {
       animation: {
-        test: 'bounce 1s infinite',
+        'scroll-left': 'scrollLeft 20s linear infinite',
       },
     },
   },

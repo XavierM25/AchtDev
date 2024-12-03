@@ -1,0 +1,56 @@
+---
+const icons = [
+    { src: '/icons/css.svg', alt: 'CSS Logo' },
+    { src: '/icons/angular.svg', alt: 'Angular Logo' },
+    { src: '/icons/html.svg', alt: 'HTML Logo' },
+    { src: '/icons/mongo.svg', alt: 'MongoDB Logo' },
+    { src: '/icons/nuxt.svg', alt: 'Nuxt Logo' },
+    { src: '/icons/tailwind.svg', alt: 'Tailwind Logo' },
+    { src: '/icons/remix.svg', alt: 'Remix Logo' },
+    { src: '/icons/javascript.svg', alt: 'JavaScript Logo' },
+    { src: '/icons/laravel.svg', alt: 'Laravel Logo' },
+    { src: '/icons/java.svg', alt: 'Java Logo' },
+    { src: '/icons/flutter.svg', alt: 'Flutter Logo' },
+    { src: '/icons/react.svg', alt: 'React Logo' },
+    { src: '/icons/c.svg', alt: 'C# Logo' },
+    { src: '/icons/astro.svg', alt: 'Astro Logo' },
+    { src: '/icons/python.svg', alt: 'Python Logo' },
+];
+---
+
+<section class="overflow-hidden w-full p-7 bg-[#5C59C2]">
+    <div class="flex animate-scroll-left space-x-24 py-4">
+        {
+            icons.map((icon) => (
+                <img
+                    src={icon.src}
+                    alt={icon.alt}
+                    class="w-16 h-16 object-contain"
+                />
+            ))
+        }
+        {
+            icons.map((icon) => (
+                <img
+                    src={icon.src}
+                    alt={icon.alt}
+                    class="w-16 h-16 object-contain"
+                />
+            ))
+        }
+    </div>
+</section>
+<style>
+    @keyframes scrollLeft {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    .animate-scroll-left {
+        animation: scrollLeft 20s linear infinite;
+    }
+</style>
