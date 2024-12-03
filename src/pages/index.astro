@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PlanesSection from '@/components/planes/planesSection.astro';
 import Becas from '@/components/main/beca/index_becas.astro';
 import Header from '@/components/header.astro';
 import Main from '@/components//main/main/index_main.astro';
@@ -8,7 +9,12 @@ import FAQ from '@/components/main/FAQ/index_FAQ.astro';
 import Footer from '@/components/footer.astro';
 ---
 
+<head>
+	<link rel="stylesheet" href="/css/propPlanes.css" />
+</head>
+
 <Layout>
+	<PlanesSection />
 	<Header />
 	<div class="mt-20">
 		<Main />
@@ -19,4 +25,5 @@ import Footer from '@/components/footer.astro';
 	<div class="mt-20">
 		<FAQ />
 	</div>
+	<Becas />
 </Layout>
