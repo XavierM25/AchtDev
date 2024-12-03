@@ -1,0 +1,48 @@
+---
+interface PlanCardProps {
+    title: string;
+    price: string;
+    frequency: string;
+    description: string;
+    features: string[]; // Especifica que features es un array de strings
+    imgSrc: string;
+    imgAlt: string;
+    buttonText: string;
+    buttonLink: string;
+    checkColor: string; // Define el color como string
+}
+
+const{
+    title,
+    price,
+    frequency,
+    description,
+    features,
+    imgSrc,
+    imgAlt,
+    buttonText,
+    buttonLink,
+    checkColor
+} = Astro.props;
+---
+
+<article class="plan bg-white rounded-[40px] shadow-md w-[290px] p-8 text-center transition-transform duration-300 ease-in-out hover:translate-y-[-10px]">
+    <header class="plan-header">
+        <img src={imgSrc} alt={imgAlt}>
+        <h2>{title}</h2>
+        <p>{price} <span class="tamaño">{frequency}</span></p>
+    </header>
+    <p class="include">{description}</p>
+    <ul>
+        {features.map((feature: string) => (
+            <li class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24"><path fill={checkColor} fill-rule="evenodd" d="M12 21a9 9 0 1 0 0-18a9 9 0 0 0 0 18m-.232-5.36l5-6l-1.536-1.28l-4.3 5.159l-2.225-2.226l-1.414 1.414l3 3l.774.774z" clip-rule="evenodd"/></svg>
+                <span>{feature}</span>
+            </li>
+        ))}
+    </ul>
+    <a href={buttonLink}>
+        <button type="button">{buttonText}</button>
+    </a>
+</article>
+

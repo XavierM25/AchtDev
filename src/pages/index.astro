@@ -2,9 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 import Becas from '@/components/main/beca/index_becas.astro'
 import Header from '@/components/header.astro'
+import PlanesSection from '@/components/planes/planesSection.astro';
 ---
+<head>
+	<link rel="stylesheet" href="/css/propPlanes.css">
+</head>
 
 <Layout>
-<Header />
-	<Becas />
+	<PlanesSection />
 </Layout>
