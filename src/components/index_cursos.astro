@@ -1,0 +1,28 @@
+---
+import '@/styles/global.css'
+---
+<body>
+    <div>
+        <h1>¿Qué quieres aprender hoy?</h1>
+        <form action="/buscar" method="GET">
+            <button 
+                type="submit" 
+                class="bg-blue-600 text-white px-4 py-2 rounded-lg mt-2">
+                Buscar
+            </button>
+            <input 
+                type="search" 
+                name="query" 
+                placeholder="Buscar..." 
+                class="border border-gray-300 rounded-lg p-2 w-full">
+        </form>
+        <label>Categorías</label>
+        <div>
+            <button>
+                <img src="" alt="i_prog_basica">
+                <label>Programación Básica</label>
+                <div></div>
+            </button>
+        </div>
+    </div>
+</body>
