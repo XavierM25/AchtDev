@@ -1,80 +1,88 @@
 ---
-import PlanCard from "./planCard.astro";
-
 const plans = [
     {
-        title: "Plan Staff",
-        price: "S/. 200",
-        frequency: "/Anual",
-        description: "Todo lo que está incluido en el plan staff:",
-        features: [
-            "Acceso para solo 1 usuario",
-            "Acceso completo a todos los cursos.",
-            "Certificado de finalización.",
-            "365 días de duración.",
-            "Pago único"
+        title: 'Plan Staff',
+        price: 'S/. 200 /Anual',
+        benefits: [
+            'Acceso completo a todos los cursos',
+            'Certificado de finalización',
+            'Recompensas por suscripción continuada',
+            'Certificado de finalización',
+            'Recompensas por suscripción continuada',
         ],
-        imgSrc: "/planes/planStaff_Ado.svg",
-        imgAlt: "Icono del Plan Staff",
-        buttonText: "Adquiere el plan",
-        buttonLink: "pago.html",
-        checkColor: "#B3B3B3"
+        color: '#FFFFFF',
+        colorText: '#414141',
+        colorBUtton: '#EAEAEA',
+        logoColor: '#414141',
+        hoverButton: '#c7c7c7',
+        textColorButton: '#414141',
     },
-
     {
-        title: "Plan Duo",
-        price: "S/. 350",
-        frequency: "/Anual",
-        description: "Todo lo que está incluido en el plan dúo:",
-        features: [
-            "Acceso para 2 usuarios",
-            "Acceso completo a todos los cursos.",
-            "Certificado de finalización.",
-            "365 días de duración.",
-            "Pago único",
-            "Descuento de 50 soles del precio inicial."
+        title: 'Plan Duo',
+        price: 'S/. 350 /Anual',
+        benefits: [
+            'Acceso completo a todos los cursos',
+            'Certificado de finalización',
+            'Recompensas por suscripción continuada',
+            'Certificado de finalización',
+            'Recompensas por suscripción continuada',
         ],
-        imgSrc: "/planes/planDuo_Ado.svg",
-        imgAlt: "Icono del Plan Duo",
-        buttonText: "Adquiere el plan",
-        buttonLink: "#",
-        checkColor: "#70A59E"
+        color: '#9AD3CC',
+        colorText: '#414141',
+        colorBUtton: '#89C8C0',
+        logoColor: '#414141',
+        hoverButton: '#6fa39c',
+        textColorButton: '#414141',
     },
-
     {
-        title: "Plan Team",
-        price: "S/. 500",
-        frequency: "/Anual",
-        description: "Todo lo que está incluido en el plan team:",
-        features: [
-            "Acceso para 4 usuarios",
-            "Acceso completo a todos los cursos.",
-            "Certificado de finalización.",
-            "365 días de duración.",
-            "Pago único",
-            "Descuento de 100 soles del precio inicial."
+        title: 'Plan Team',
+        price: 'S/. 500 /Anual',
+        benefits: [
+            'Acceso completo a todos los cursos',
+            'Certificado de finalización',
+            'Recompensas por suscripción continuada',
+            'Certificado de finalización',
+            'Recompensas por suscripción continuada',
         ],
-        imgSrc: "/planes/planTeam_Ado.svg",
-        imgAlt: "Icono del Plan Team",
-        buttonText: "Adquiere el plan",
-        buttonLink: "#",
-        checkColor: "#FFFFFF"
-    }
+        color: '#5C59C2',
+        colorText: '#fff',
+        colorBUtton: '#5350B9',
+        logoColor: '#ffffff',
+        hoverButton: '#444199',
+        textColorButton: '#fff',
+    },
 ];
+import PlanCard from './planCard.astro';
+import '@/styles/global.css';
 ---
-<section class="planes_central text-center py-24 bg-[var(--Fondo)]">
-    <div class="planes_text">
-        <h1 class="font-black text-4xl mb-2 text-[var(--Texto)]">Escoge tu <span class="text-[var(--Morado)]">Plan</span></h1>
-        <p class="font-medium text-base text-[var(--Texto)] mx-5 mb-12">
-            Elige uno de nuestros planes para ti y tus<br />amigos
-        </p>
-    </div>
-    <div class="planes flex justify-around gap-16 max-w-[1000px] mx-auto">
-        {plans.map((plan) => (
-            <PlanCard {...plan} /> // Llamamos al componente PlanCard con las propiedades de cada plan
-        ))}
-    </div>
-</section>
 
-
-
+<h1
+    class="font-onest justify-center flex text-5xl mb-5"
+    style="font-weight: 800;"
+>
+    <span class="text-[#5C59C2]">Escoge&nbsp;</span>
+    <span class="text-[#414141]">tu plan</span>
+</h1>
+<p
+    class="font-onest mx-auto text-xl mb-14 max-w-[500px]"
+    style="font-weight: 400; text-align: center;"
+>
+    Escoge uno de nuestros planes, para tí y para tus amigos
+</p>
+<div class="flex flex-row gap-8 justify-center">
+    {
+        plans.map((plan) => (
+            <PlanCard
+                title={plan.title}
+                price={plan.price}
+                benefits={plan.benefits}
+                color={plan.color}
+                colorText={plan.colorText}
+                colorBUtton={plan.colorBUtton}
+                logoColor={plan.logoColor}
+                hoverButton={plan.hoverButton}
+                textColorButton={plan.textColorButton}
+            />
+        ))
+    }
+</div>

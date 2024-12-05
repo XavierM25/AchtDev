@@ -6,6 +6,7 @@ export default {
   theme: {
     extend: {
       animation: {
+        'pop': 'pop 2s infinite linear',
       },
     },
   },

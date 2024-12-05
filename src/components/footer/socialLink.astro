@@ -1,0 +1,55 @@
+---
+interface SocialLink {
+    platform: string;
+    url: string;
+    icon: string;
+}
+
+const socialLinks: SocialLink[] = [
+    {
+        platform: 'Instagram',
+        url: '#',
+        icon: 'instagram',
+    },
+    {
+        platform: 'Facebook',
+        url: '#',
+        icon: 'facebook',
+    },
+    {
+        platform: 'TikTok',
+        url: '#',
+        icon: 'tiktok',
+    },
+];
+---
+
+<div class="flex items-center gap-7">
+    {
+        socialLinks.map(({ platform, url, icon }) => (
+            <a
+                href={url}
+                class="text-white hover:text-gray-200 transition-colors"
+                aria-label={`Síguenos en ${platform}`}
+            >
+                {icon === 'instagram' && (
+                    <img
+                        src="/logos/instagram.svg"
+                        alt="Instagram"
+                        class="w-8 h-8"
+                    />
+                )}
+                {icon === 'facebook' && (
+                    <img
+                        src="/logos/facebook.svg"
+                        alt="Facebook"
+                        class="w-8 h-8"
+                    />
+                )}
+                {icon === 'tiktok' && (
+                    <img src="/logos/tiktok.svg" alt="TikTok" class="w-8 h-8" />
+                )}
+            </a>
+        ))
+    }
+</div>
