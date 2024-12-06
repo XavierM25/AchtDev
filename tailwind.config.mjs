@@ -7,9 +7,16 @@ export default {
     extend: {
       animation: {
         'pop': 'pop 2s infinite linear',
+        'fade-in': 'fade-in 0.5s ease-out',
+      },
+      keyframes: {
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
       },
     },
   },
-  arkMode: "class",
+  darkMode: "class",
   plugins: [animations,],
 };

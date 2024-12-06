@@ -1,0 +1,17 @@
+---
+import AuthLayout from '@/layouts/AuthLayout.astro';
+import AuthHeader from '@/components/AuthHeader.astro';
+import AuthSocials from '@/components/AuthSocials.astro';
+import AuthLogin from '@/components/AuthLogin.astro';
+import '@/styles/global.css';
+---
+
+<AuthLayout class="animate-fade-in">
+    <AuthHeader />
+    <AuthSocials />
+    <div class="mt-8 flex flex-row items-center gap-8 justify-center">
+        <div class="w-32 h-[1px] bg-[#C8C6C6]"></div>
+        <p class="font-biryani text-[#828282]" style="font-weight: 600;">O</p>
+        <div class="w-32 h-[1px] bg-[#C8C6C6]"></div>
+    </div>
+</AuthLayout>
