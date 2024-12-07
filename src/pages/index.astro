@@ -7,6 +7,8 @@ import Main from '@/components//main/main/index_main.astro';
 import Carrusel from '@/components/main/carrusel/index_carrusel.astro';
 import FAQ from '@/components/main/FAQ/index_FAQ.astro';
 import Footer from '@/components/footer/footer.astro';
+import { VelocityScroll } from '@/components/ui/scroll-based-velocity';
+
 import '@/styles/global.css';
 ---
 
@@ -18,10 +20,20 @@ import '@/styles/global.css';
 	<div class="mt-20">
 		<Carrusel />
 	</div>
-	<div class="mt-44">
+	<div id="planes" class="mt-44">
 		<Planes />
 	</div>
 	<div class="mt-44">
+		<section class="overflow-hidden w-full py-7 bg-[#5C59C2]">
+			<VelocityScroll
+				text="Educando con tecnología"
+				default_velocity={5}
+				className="font-onest text-center text-4xl font-bold tracking-[-0.05rem] text-[white] drop-shadow-sm dark:text-white md:text-7xl md:leading-[5rem]"
+				client:load
+			/>
+		</section>
+	</div>
+	<div id="faq" class="mt-44">
 		<FAQ />
 	</div>
 	<div class="mt-44">

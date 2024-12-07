@@ -3,10 +3,10 @@ import '@/styles/global.css';
 ---
 
 <header
-    class="header fixed flex w-[900px] justify-center left-1/2 transform -translate-x-1/2 top-6 rounded-full bg-[#FFFFFF] shadow-md z-10"
+    class="header fixed flex w-[900px] justify-center left-1/2 transform -translate-x-1/2 top-6 rounded-full bg-[#FFFFFF] shadow-md z-50"
 >
     <nav class="flex justify-between w-full mx-10 h-[60px]">
-        <div class="flex flex-row items-center">
+        <div class="flex flex-row items-center hover:animate-jiggle">
             <a href="/">
                 <img
                     src="/AchtDev_Logo.svg"
@@ -28,13 +28,7 @@ import '@/styles/global.css';
                         >Planes</a
                     >
                 </li>
-                <li>
-                    <a
-                        href="cursos.html"
-                        class="nav-link text-[#222] hover:text-[#5c59c2] transition-colors duration-300"
-                        >Cursos</a
-                    >
-                </li>
+
                 <li>
                     <a
                         href="#faq"
@@ -44,7 +38,7 @@ import '@/styles/global.css';
                 </li>
                 <li>
                     <a
-                        href="beca.html"
+                        href="/beca"
                         class="nav-link text-[#222] hover:text-[#5c59c2] transition-colors duration-300"
                         >Beca</a
                     >
@@ -54,10 +48,30 @@ import '@/styles/global.css';
 
         <div class="hidden lg:flex items-center space-x-2">
             <a
-                href="/auth"
+                href="/login"
                 class="text-[#fff] bg-[#5C59C2] items-center px-10 py-1 rounded-full text-lg hover:bg-[#4a489e] transition-colors duration-300 font-manrope hover:animate-heartbeat"
                 style="font-weight: 800;">Acceder</a
             >
         </div>
     </nav>
 </header>
+
+<script>
+    document
+        .querySelector('a[href="#planes"]')
+        ?.addEventListener('click', function (e) {
+            e.preventDefault();
+            document
+                .querySelector('#planes')
+                ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+
+    document
+        .querySelector('a[href="#faq"]')
+        ?.addEventListener('click', function (e) {
+            e.preventDefault();
+            document
+                .querySelector('#faq')
+                ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+</script>

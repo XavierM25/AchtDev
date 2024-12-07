@@ -1,0 +1,56 @@
+---
+import GradualSpacing from '@/components/ui/gradual-spacing';
+import IconCloud from '@/components/ui/icon-cloud';
+const slugs = [
+    'typescript',
+    'javascript',
+    'dart',
+    'java',
+    'react',
+    'flutter',
+    'android',
+    'html5',
+    'css3',
+    'nodedotjs',
+    'express',
+    'nextdotjs',
+    'prisma',
+    'amazonaws',
+    'postgresql',
+    'firebase',
+    'nginx',
+    'vercel',
+    'testinglibrary',
+    'jest',
+    'cypress',
+    'docker',
+    'git',
+    'jira',
+    'github',
+    'gitlab',
+    'visualstudiocode',
+    'androidstudio',
+    'sonarqube',
+    'figma',
+];
+---
+
+<div class="flex flex-col h-full">
+    <div>
+        <div class="w-[450px] h-[450px]">
+            <IconCloud iconSlugs={slugs} client:load />
+        </div>
+        <div class="mt-32 text-3xl">
+            <GradualSpacing
+                className="text-[#5C59C2] font-onest font-black"
+                text="Construimos habilidades,"
+                client:load
+            />
+            <GradualSpacing
+                className="text-[#414141] font-semibold"
+                text="inspiramos sueños."
+                client:load
+            />
+        </div>
+    </div>
+</div>
