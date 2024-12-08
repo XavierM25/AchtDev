@@ -1,5 +1,9 @@
 ---
 import '@/styles/global.css';
+import cookie from 'cookie';
+
+const cookies = cookie.parse(Astro.request.headers.get('cookie') || '');
+const estaConectado = !!cookies.access_token;
 ---
 
 <header
@@ -47,11 +51,25 @@ import '@/styles/global.css';
         </div>
 
         <div class="hidden lg:flex items-center space-x-2">
-            <a
-                href="/login"
-                class="text-[#fff] bg-[#5C59C2] items-center px-10 py-1 rounded-full text-lg hover:bg-[#4a489e] transition-colors duration-300 font-manrope hover:animate-heartbeat"
-                style="font-weight: 800;">Acceder</a
-            >
+            {
+                estaConectado ? (
+                    <a
+                        href="/dashboard"
+                        class="text-[#fff] bg-[#5C59C2] items-center px-10 py-1 rounded-full text-lg hover:bg-[#4a489e] transition-colors duration-300 font-manrope hover:animate-heartbeat"
+                        style="font-weight: 800;"
+                    >
+                        Inicio
+                    </a>
+                ) : (
+                    <a
+                        href="/login"
+                        class="text-[#fff] bg-[#5C59C2] items-center px-10 py-1 rounded-full text-lg hover:bg-[#4a489e] transition-colors duration-300 font-manrope hover:animate-heartbeat"
+                        style="font-weight: 800;"
+                    >
+                        Acceder
+                    </a>
+                )
+            }
         </div>
     </nav>
 </header>

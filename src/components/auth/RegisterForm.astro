@@ -3,7 +3,7 @@ import '@/styles/global.css';
 ---
 
 <section>
-    <form action="">
+    <form id="registerForm" method="POST">
         <div class="flex flex-row items-center mt-4 mb-5 w-full gap-4">
             <div class="w-full">
                 <div class="flex flex-row gap-2 items-center mb-1">
@@ -16,10 +16,12 @@ import '@/styles/global.css';
                     class="py-3 bg-[#E8EDEB] border-2 rounded-xl border-[#C8C6C6]"
                 >
                     <input
-                        class="mx-4 w-[95%] bg-transparent border-0 font-onest"
+                        name="name"
+                        class="mx-4 w-[90%] bg-transparent border-0 font-onest"
                         placeholder="Ingresa tus nombres"
                         type="text"
                         style="outline: none;"
+                        required
                     />
                 </div>
             </div>
@@ -34,10 +36,12 @@ import '@/styles/global.css';
                     class="py-3 bg-[#E8EDEB] border-2 rounded-xl border-[#C8C6C6]"
                 >
                     <input
+                        name="surname"
                         placeholder="Ingresa tus apellidos"
-                        class="mx-4 w-[95%] bg-transparent border-0 font-onest"
+                        class="mx-4 w-[90%] bg-transparent border-0 font-onest"
                         type="text"
                         style="outline: none;"
+                        required
                     />
                 </div>
             </div>
@@ -52,70 +56,149 @@ import '@/styles/global.css';
                 class="w-full py-3 bg-[#E8EDEB] border-2 rounded-xl border-[#C8C6C6]"
             >
                 <input
+                    name="email"
                     placeholder="Ingresa tu correo"
                     class="mx-4 w-[95%] bg-transparent border-0 font-onest"
-                    type="text"
+                    type="email"
                     style="outline: none;"
+                    required
                 />
             </div>
         </div>
 
         <div class="mb-5">
-            <div class="flex flex-row gap-2 items-center mb-1">
+            <label for="password" class="flex flex-row gap-2 items-center mb-1">
                 <img src="/icons/lock.svg" class="w-4 h-4" alt="" />
                 <h1 class="font-inter" style="font-weight: 600;">Contraseña</h1>
-            </div>
+            </label>
             <div
-                class="w-full py-3 bg-[#E8EDEB] border-2 rounded-xl border-[#C8C6C6]"
+                class="relative w-full py-3 bg-[#E8EDEB] border-2 rounded-xl border-[#C8C6C6]"
             >
                 <input
-                    placeholder="·················"
-                    class="mx-4 w-[95%] bg-transparent border-0 font-onest"
+                    name="password"
                     type="password"
+                    id="registerPassword"
+                    required
+                    class="mx-4 w-[95%] bg-transparent border-0 font-onest"
                     style="outline: none;"
+                    placeholder="••••••••"
                 />
+
+                <button
+                    type="button"
+                    id="toggleRegisterPassword"
+                    class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-600 transition"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-5 h-5"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+                        ></path>
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                </button>
             </div>
         </div>
 
         <div class="mb-5">
-            <div class="flex flex-row gap-2 items-center mb-1">
+            <label
+                for="confirmPassword"
+                class="flex flex-row gap-2 items-center mb-1"
+                style="font-weight: 600;"
+            >
                 <img src="/icons/lock.svg" class="w-4 h-4" alt="" />
                 <h1 class="font-inter" style="font-weight: 600;">
                     Repetir contraseña
                 </h1>
-            </div>
+            </label>
             <div
-                class="w-full py-3 bg-[#E8EDEB] border-2 rounded-xl border-[#C8C6C6]"
+                class="relative w-full py-3 bg-[#E8EDEB] border-2 rounded-xl border-[#C8C6C6]"
             >
                 <input
-                    placeholder="·················"
-                    class="mx-4 w-[95%] bg-transparent border-0 font-onest"
+                    name="confirmPassword"
                     type="password"
+                    id="confirmPassword"
+                    required
+                    class="mx-4 w-[95%] bg-transparent border-0 font-onest"
                     style="outline: none;"
+                    placeholder="••••••••"
                 />
+
+                <button
+                    type="button"
+                    id="toggleConfirmPassword"
+                    class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-5 h-5"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+                        ></path>
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                </button>
             </div>
+            <p id="errorMessage" class="text-red-500 hidden">
+                Las contraseñas no coinciden.
+            </p>
+            <p
+                id="confirmPasswordError"
+                class="mt-1 text-sm text-red-500 hidden"
+            >
+            </p>
         </div>
 
         <div class="mb-5">
-            <div class="flex flex-row gap-2 items-center mb-1">
+            <label
+                for="birthDate"
+                class="flex flex-row gap-2 items-center mb-1"
+            >
                 <img src="/icons/calendar.svg" class="w-4 h-4" alt="" />
                 <h1 class="font-inter" style="font-weight: 600;">
                     Fecha de nacimiento
                 </h1>
-            </div>
+            </label>
             <div
-                class="w-full py-3 bg-[#E8EDEB] border-2 rounded-xl border-[#C8C6C6]"
+                class="w-full py-3 bg-[#E8EDEB] border-2 rounded-xl border-[#C8C6C6] flex gap-2"
             >
                 <input
-                    placeholder="·················"
-                    class="mx-4 w-[95%] bg-transparent border-0 font-onest"
                     type="date"
+                    id="birthDate"
                     style="outline: none;"
+                    name="birthDate"
+                    required
+                    class="mx-4 w-[95%] bg-transparent border-0 font-onest"
                 />
             </div>
+            <p id="dateError" class="mt-1 text-sm text-red-500 hidden">
+                Please enter a valid date
+            </p>
         </div>
+
         <input
-            type="button"
+            type="submit"
             value="Ingresar"
             class="py-3 mt-5 w-full bg-[#5C59C2] rounded-full text-white hover:bg-[#4a489e] font-inter transition-colors duration-300"
             style="font-weight: 700; cursor:pointer; "
@@ -127,3 +210,181 @@ import '@/styles/global.css';
         >
     </a>
 </section>
+
+<script>
+    import { navigate } from 'astro:transitions/client';
+
+    const dateInput = document.getElementById('birthDate') as HTMLInputElement;
+    const dateError = document.getElementById('dateError');
+
+    function isValidDate(date: Date): boolean {
+        return date instanceof Date && !isNaN(date.getTime());
+    }
+
+    function updateMaxDate() {
+        const today = new Date();
+        const maxDate = new Date(
+            today.getFullYear() - 13,
+            today.getMonth(),
+            today.getDate()
+        );
+        dateInput.setAttribute('max', maxDate.toISOString().split('T')[0]);
+
+        // Set min date to 120 years ago
+        const minDate = new Date(
+            today.getFullYear() - 120,
+            today.getMonth(),
+            today.getDate()
+        );
+        dateInput.setAttribute('min', minDate.toISOString().split('T')[0]);
+    }
+
+    function validateDate() {
+        const selectedDate = new Date(dateInput.value);
+        const today = new Date();
+        const maxDate = new Date(
+            today.getFullYear() - 3,
+            today.getMonth(),
+            today.getDate()
+        );
+        const minDate = new Date(
+            today.getFullYear() - 120,
+            today.getMonth(),
+            today.getDate()
+        );
+
+        if (
+            !isValidDate(selectedDate) ||
+            selectedDate > maxDate ||
+            selectedDate < minDate
+        ) {
+            dateInput.classList.add('border-red-500');
+            dateInput.classList.remove('border-gray-300');
+            if (dateError) {
+                dateError.classList.remove('hidden');
+                dateError.textContent =
+                    selectedDate > maxDate
+                        ? 'Tienes que ser mayor de 3 años para registrarte'
+                        : 'Por favor ingresa una fecha válida';
+            }
+            return false;
+        } else {
+            dateInput.classList.remove('border-red-500');
+            dateInput.classList.add('border-gray-300');
+            if (dateError) {
+                dateError.classList.add('hidden');
+            }
+            return true;
+        }
+    }
+
+    updateMaxDate();
+    dateInput?.addEventListener('change', validateDate);
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const passwordInput = document.querySelector('#registerPassword');
+        const confirmPasswordInput = document.querySelector('#confirmPassword');
+        const togglePassword = document.querySelector(
+            '#toggleRegisterPassword'
+        );
+        const toggleConfirmPassword = document.querySelector(
+            '#toggleConfirmPassword'
+        );
+        const submitButton = document.querySelector(
+            '#registrationForm button[type="submit"]'
+        );
+        const errorMessage = document.querySelector('#errorMessage');
+
+        // Función para verificar si las contraseñas coinciden
+        const checkPasswordsMatch = () => {
+            if (
+                passwordInput &&
+                confirmPasswordInput &&
+                (passwordInput as HTMLInputElement).value !==
+                    (confirmPasswordInput as HTMLInputElement).value
+            ) {
+                errorMessage?.classList.remove('hidden');
+                submitButton?.setAttribute('disabled', 'true');
+            } else {
+                errorMessage?.classList.add('hidden');
+                submitButton?.removeAttribute('disabled');
+            }
+        };
+
+        passwordInput?.addEventListener('input', checkPasswordsMatch);
+        confirmPasswordInput?.addEventListener('input', checkPasswordsMatch);
+
+        // Lógica para mostrar/ocultar contraseña y cambiar SVG en password
+        togglePassword?.addEventListener('click', () => {
+            const type =
+                passwordInput?.getAttribute('type') === 'password'
+                    ? 'text'
+                    : 'password';
+            passwordInput?.setAttribute('type', type);
+
+            const svg = togglePassword.querySelector('svg');
+            if (type === 'password') {
+                svg!.innerHTML = `
+      <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+    `;
+            } else {
+                svg!.innerHTML = `
+      <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
+    `;
+            }
+        });
+
+        // Lógica para mostrar/ocultar contraseña y cambiar SVG en confirmPassword
+        toggleConfirmPassword?.addEventListener('click', () => {
+            if (confirmPasswordInput) {
+                const type =
+                    confirmPasswordInput.getAttribute('type') === 'password'
+                        ? 'text'
+                        : 'password';
+                confirmPasswordInput.setAttribute('type', type);
+
+                const svg = toggleConfirmPassword.querySelector('svg');
+                if (svg) {
+                    if (type === 'password') {
+                        svg.innerHTML = `
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        `;
+                    } else {
+                        svg.innerHTML = `
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
+        `;
+                    }
+                }
+            }
+        });
+    });
+    import { registerUser } from '@/services/apiServices.mjs';
+
+    document
+        .getElementById('registerForm')
+        ?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target as HTMLFormElement;
+            if (!form) return;
+            const formData = new FormData(form);
+            const userData = {
+                name: formData.get('name'),
+                surname: formData.get('surname'),
+                email: formData.get('email'),
+                password: formData.get('password'),
+                birthday: formData.get('birthDate'),
+            };
+            try {
+                await registerUser(userData);
+                navigate('/login');
+            } catch (error) {
+                if (error instanceof Error) {
+                    alert(error.message);
+                } else {
+                    alert('An unknown error occurred');
+                }
+            }
+        });
+</script>
