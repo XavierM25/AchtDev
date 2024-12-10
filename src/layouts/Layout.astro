@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="custom-scrollbar">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -7,7 +7,10 @@
 		<meta name="generator" content={Astro.generator} />
 		<title>Bienvenido a AchtDev</title>
 	</head>
-	<body class="bg-[#e8edeb] m-0 w-full h-full scroll-smooth">
+	<body
+		class="bg-[#e8edeb] m-0 w-full h-full scroll-smooth"
+		style="transition: transform 0.5s ease;"
+	>
 		<slot />
 	</body>
 </html>
