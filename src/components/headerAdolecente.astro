@@ -1,0 +1,204 @@
+---
+import '@/styles/global.css';
+---
+
+<header
+    class="header fixed flex w-[900px] justify-center left-1/2 transform -translate-x-1/2 top-6 rounded-full bg-[#FFFFFF] shadow-md z-10"
+>
+    <nav class="flex justify-between w-full mx-10 h-[60px]">
+        <div class="flex flex-row items-center">
+            <a href="principal.html">
+                <img
+                    src="/logoGe.svg"
+                    class="w-[55px]"
+                    alt="Logo FourDev"
+                />
+                <img
+                    src="/FourDev_Eyes_Logo.svg"
+                    class="w-[60px] hidden"
+                    alt="Logo FourDev Eyes"
+                />
+            </a>
+        </div>
+
+        <div class="flex items-center right-0 static">
+            <ul
+                class="flex flex-col space-y-4 lg:flex-row lg:space-y-0 lg:space-x-12 font-onest text-lg"
+                style="font-weight: 600;"
+            >
+                <li>
+                    <a
+                        href="#planes"
+                        class="nav-link text-[#222] hover:text-[#56789E] transition-colors duration-300"
+                        >Planes</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="cursos.html"
+                        class="nav-link text-[#222] hover:text-[#56789E] transition-colors duration-300"
+                        >Cursos</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="#faq"
+                        class="nav-link text-[#222] hover:text-[#56789E] transition-colors duration-300"
+                        >Faq</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="beca.html"
+                        class="nav-link text-[#222] hover:text-[#56789E] transition-colors duration-300"
+                        >Beca</a
+                    >
+                </li>
+            </ul>
+        </div>
+
+        <div class="hidden lg:flex items-center space-x-2">
+            <a
+                href="logIn.html"
+                class="text-[#fff] bg-[#6188B3] items-center px-10 py-1 rounded-full text-lg hover:bg-[#56789E] transition-colors duration-300 font-manrope hover:animate-heartbeat"
+                style="font-weight: 800;">Acceder</a
+            >
+        </div>
+    </nav>
+    <!--La Racha -->
+
+    <div class="streak-container fixed top-[2rem] right-[15rem] z-20">
+        <button class="streak-trigger" type="button" aria-haspopup="dialog" aria-expanded="false"
+            aria-controls="streak-dialog" aria-label="Ver racha">
+            <div class="streak-content">
+                <!-- Imagen de fueguito con animación -->
+                <img class="fire-icon" src="/public/Fuego_animado_azul.webp" alt="Fuego" width="30" height="30">
+                <span class="streak-counter">5</span>
+            </div>
+        </button>
+        <div class="streak-popup" id="streak-dialog" role="dialog" aria-labelledby="streak-title" aria-modal="true">
+            <div class="streak-popup-content">
+                <!-- Encabezado: Imagen y título -->
+                <div class="streak-header">
+                    <img class="fire-icon" src="/public/Fuego_animado_azul.webp" alt="Fuego" width="50" height="50">
+                    <h3 id="streak-title">Racha semanal</h3>
+                </div>
+                <!-- Descripción -->
+                <p class="streak-description">¡Llevas 11 semanas en racha! Regresa la próxima semana para mantenerla.</p>
+                <!-- Línea y semanas -->
+                <div class="streak-weeks-container">
+                    <label class="streak-weeks-label">Semana:</label>
+                    <div class="streak-weeks-line"></div>
+                    <div class="weeks">
+                        <span class="week">N</span>
+                        <span class="week">N</span>
+                        <span class="week">N</span>
+                        <span class="week">N</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+<style>
+.streak-container {
+    position: fixed;
+    top: 0.5rem; /* Reduce este valor para moverlo más arriba */
+    right: 15rem; /* Margen desde el borde derecho */
+    z-index: 20;
+}
+/* Contenedor principal del popup */
+.streak-popup {
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    border-radius: 12px; /* Esquinas redondeadas */
+    padding: 1.5rem;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    display: none; /* Oculto por defecto */
+    width: 360px; /* Ancho del popup */
+    text-align: center;
+}
+
+/* Mostrar popup al pasar el mouse */
+.streak-container:hover .streak-popup {
+    display: block;
+}
+
+/* Contenido del encabezado */
+.streak-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* Espacio entre imagen y título */
+    justify-content: center; /* Centrar el contenido */
+    margin-bottom: 1rem;
+}
+
+#streak-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Descripción del popup */
+.streak-description {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+/* Contenedor de semanas */
+.streak-weeks-container {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.streak-weeks-label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* Línea que conecta los círculos */
+.streak-weeks-line {
+    height: 2px;
+    background-color: #d1d1d1;
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    top: 10px;
+    z-index: -1; /* Detrás de los círculos */
+}
+
+/* Círculos de semanas */
+.weeks {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    margin-top: -10px; /* Para superponer los círculos sobre la línea */
+}
+
+.week {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border: 2px solid #d1d1d1;
+    border-radius: 50%;
+    font-size: 1rem;
+    color: #888;
+    font-weight: bold;
+}
+
+
+</style>
+</header>

@@ -1,31 +1,31 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Planes from '@/components/planes/planesSection.astro';
+import PlanesAdolecente from '@/components/planes/planesSectionAdolecente.astro';//Nuevo
 import Becas from '@/components/main/beca/index_becas.astro';
-import Header from '@/components/header.astro';
-import Main from '@/components//main/main/index_main.astro';
-import Carrusel from '@/components/main/carrusel/index_carrusel.astro';
-import FAQ from '@/components/main/FAQ/index_FAQ.astro';
-import Footer from '@/components/footer/footer.astro';
+import Headeradolecente from '@/components/headerAdolecente.astro';//Nuevo
+import Main from '@/components//main/main/index_mainAdolecente.astro';
+import CarruselAdolecente from '@/components/main/carrusel/index_carruselAdolecente.astro';
+import FAQadolecente from '@/components/main/FAQ/index_FAQ_Adolecente.astro';//NUEVO
+import FooterAdolecente from '@/components/footer/footerAdolecente.astro';//Nuevo
 import '@/styles/global.css';
 ---
 
 <Layout>
-	<Header />
+	<Headeradolecente />
 	<div class="mt-20">
 		<Main />
 	</div>
 	<div class="mt-20">
-		<Carrusel />
+		<CarruselAdolecente />
 	</div>
 	<div class="mt-44">
-		<Planes />
+		<PlanesAdolecente />
 	</div>
 	<div class="mt-44">
-		<FAQ />
+		<FAQadolecente />
 	</div>
 	<div class="mt-44">
-		<Footer />
+		<FooterAdolecente />
 	</div>
 	<Becas />
 </Layout>
