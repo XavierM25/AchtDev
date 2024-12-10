@@ -1,7 +1,6 @@
 ---
 import '@/styles/global.css';
 import cookie from 'cookie';
-
 const cookies = cookie.parse(Astro.request.headers.get('cookie') || '');
 const estaConectado = !!cookies.access_token;
 ---
@@ -54,6 +53,7 @@ const estaConectado = !!cookies.access_token;
             {
                 estaConectado ? (
                     <a
+                        id="dashboard-button"
                         href="/dashboard"
                         class="text-[#fff] bg-[#5C59C2] items-center px-10 py-1 rounded-full text-lg hover:bg-[#4a489e] transition-colors duration-300 font-manrope hover:animate-heartbeat"
                         style="font-weight: 800;"
@@ -74,7 +74,7 @@ const estaConectado = !!cookies.access_token;
     </nav>
 </header>
 
-<script>
+<script define:vars={{ estaConectado }}>
     document
         .querySelector('a[href="#planes"]')
         ?.addEventListener('click', function (e) {
