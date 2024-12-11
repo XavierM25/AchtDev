@@ -1,0 +1,111 @@
+---
+interface Props {
+    items: {
+        title: string;
+        content: string;
+    }[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="w-full max-w-4xl mx-auto space-y-4">
+    {
+        items.map((item, index) => (
+            <div class="accordion-item bg-white rounded-3xl overflow-hidden">
+                <button
+                    class="accordion-trigger w-full flex justify-between items-center p-5 text-left text-[#414141] hover:bg-gray-100 transition-colors duration-300"
+                    data-index={index}
+                >
+                    <span
+                        class="text-lg font-onest flex items-center ml-4"
+                        style="font-weight: 600;"
+                    >
+                        <span
+                            class="mr-3 text-[#5C59C2] text-3xl"
+                            style="font-weight: 500;"
+                        >
+                            +
+                        </span>
+                        {item.title}
+                    </span>
+                    <svg
+                        class="w-6 h-6 transform transition-transform duration-200"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M19 9l-7 7-7-7"
+                        />
+                    </svg>
+                </button>
+                <div
+                    class="accordion-content overflow-hidden transition-all duration-200 max-h-0"
+                    style="visibility: hidden;"
+                >
+                    <div
+                        class="p-4 text-[#414141] bg-white font-onest"
+                        style="font-weight: 400;"
+                    >
+                        {item.content}
+                    </div>
+                </div>
+            </div>
+        ))
+    }
+</div>
+
+<script>
+    function setupAccordion() {
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        let activeContent: HTMLElement | null = null;
+
+        accordionItems.forEach((item) => {
+            const trigger = item.querySelector(
+                '.accordion-trigger'
+            ) as HTMLButtonElement;
+            const content = item.querySelector(
+                '.accordion-content'
+            ) as HTMLElement;
+
+            trigger.addEventListener('click', () => {
+                const isActive = content === activeContent;
+
+                // Close active content if exists
+                if (activeContent && !isActive) {
+                    const activeArrow =
+                        activeContent.previousElementSibling?.querySelector(
+                            'svg'
+                        );
+                    activeArrow?.classList.remove('rotate-180');
+                    activeContent.style.maxHeight = '0';
+                    activeContent.style.visibility = 'hidden';
+                }
+
+                // Toggle current content
+                const arrow = trigger.querySelector('svg');
+                if (!isActive) {
+                    content.style.visibility = 'visible';
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    arrow?.classList.add('rotate-180');
+                    activeContent = content;
+                } else {
+                    content.style.maxHeight = '0';
+                    content.style.visibility = 'hidden';
+                    arrow?.classList.remove('rotate-180');
+                    activeContent = null;
+                }
+            });
+        });
+    }
+
+    // Setup on initial load
+    setupAccordion();
+
+    // Setup on view transitions
+    document.addEventListener('astro:page-load', setupAccordion);
+</script>
