@@ -27,7 +27,7 @@ const plans = [
             'Certificado de finalización',
             'Recompensas por suscripción continuada',
         ],
-        color:  '#FDE969',//'#9AD3CC',
+        color: '#FDE969', //'#9AD3CC',
         colorText: '#414141',
         colorBUtton: '#FDE969',
         logoColor: '#414141',
@@ -53,6 +53,7 @@ const plans = [
     },
 ];
 import PlanCard from './planCard.astro';
+import SparklesText from '@/components/ui/sparkles-text';
 import '@/styles/global.css';
 ---
 
@@ -60,11 +61,13 @@ import '@/styles/global.css';
     class="font-onest justify-center flex text-5xl mb-5"
     style="font-weight: 800;"
 >
-    <span class="text-[#56789E]">Escoge&nbsp;</span>
-    <span class="text-[#414141]">tu plan</span>
+    <span class="text-[#56789E] z-10">
+        <SparklesText text="Preguntas " client:load />
+    </span>
+    <span class="text-[#414141] text-6xl font-onest"> frecuentes </span>
 </h1>
 <p
-    class="font-onest mx-auto text-xl mb-14 max-w-[500px]"
+    class="font-onest mx-auto text-xl mb-14 max-w-[600px]"
     style="font-weight: 400; text-align: center;"
 >
     Escoge uno de nuestros planes, para tí y para tus amigos

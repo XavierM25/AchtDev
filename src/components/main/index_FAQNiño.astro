@@ -1,0 +1,24 @@
+---
+import Accordion from '@/components/AccordionNiño.astro';
+import SparklesText from '@/components/ui/sparkles-text';
+import '@/styles/global.css';
+---
+
+<section>
+    <h1
+        class="font-onest justify-center flex text-5xl mb-5"
+        style="font-weight: 800;"
+    >
+        <span class="text-[#205D76] z-10">
+            <SparklesText text="Preguntas " client:load />
+        </span>
+        <span class="text-[#414141] text-6xl font-onest"> frecuentes </span>
+    </h1>
+    <p
+        class="font-onest justify-center flex text-xl mb-14"
+        style="font-weight: 400;"
+    >
+        Conoce un poco más sobre FourDev
+    </p>
+    <Accordion  />
+</section>

@@ -12,9 +12,9 @@ const plans = [
         ],
         color: '#FFC122',
         colorText: '#414141',
-        colorBUtton: '#EAEAEA',
+        colorBUtton: '#f5f5f5',
         logoColor: '#FFC122',
-        hoverButton: '#c7c7c7',
+        hoverButton: '#ddd',
         textColorButton: '#FFC122',
     },
     {
@@ -29,9 +29,9 @@ const plans = [
         ],
         color: '#62D4D4',
         colorText: '#414141',
-        colorBUtton: '#EAEAEA',
+        colorBUtton: '#f5f5f5',
         logoColor: '#62D4D4',
-        hoverButton: '#c7c7c7',
+        hoverButton: '#ddd',
         textColorButton: '#205D76',
     },
     {
@@ -46,13 +46,14 @@ const plans = [
         ],
         color: '#FFA3A1',
         colorText: '#414141',
-        colorBUtton: '#EAEAEA',
+        colorBUtton: '#f5f5f5',
         logoColor: '#FFA3A1',
-        hoverButton: '#c7c7c7',
+        hoverButton: '#ddd',
         textColorButton: '#FFA09E',
     },
 ];
-import PlanCard from './planCard niño.astro';
+import PlanCard from './planCardNiño.astro';
+import SparklesText from '@/components/ui/sparkles-text';
 import '@/styles/global.css';
 ---
 
@@ -60,11 +61,13 @@ import '@/styles/global.css';
     class="font-onest justify-center flex text-5xl mb-5"
     style="font-weight: 800;"
 >
-    <span class="text-[#205D76]">Escoge&nbsp;</span>
-    <span class="text-[#205D76]">tu plan</span>
+    <span class="text-[#205D76] z-10">
+        <SparklesText text="Preguntas " client:load />
+    </span>
+    <span class="text-[#414141] text-6xl font-onest"> frecuentes </span>
 </h1>
 <p
-    class="font-onest mx-auto text-xl mb-14 max-w-[500px]"
+    class="font-onest mx-auto text-xl mb-14 max-w-[600px]"
     style="font-weight: 400; text-align: center;"
 >
     Escoge uno de nuestros planes, para tí y para tus amigos

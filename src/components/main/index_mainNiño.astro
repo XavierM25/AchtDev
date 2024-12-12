@@ -6,8 +6,9 @@ import TypingAnimation from '@/components/ui/typing-animation';
 
 <div class="flex justify-center items-center">
     <div class="">
-        <h1
-            class="font-monserrat text-6xl max-w-[800px] text-[#414141] mb-4 text-left font-bold"
+        <p
+            class="font-monserrat text-6xl max-w-[800px] text-[#FFC122] mb-4"
+            style="font-weight: 800;"
         >
             <WordPullUp
                 className=""
@@ -17,9 +18,9 @@ import TypingAnimation from '@/components/ui/typing-animation';
             <TypingAnimation
                 text="programar."
                 client:load
-                className="text-[#5C59C2] font-cascadia"
+                className="text-[#FFA09E] font-cascadia"
             />
-        </h1>
+        </p>
 
         <p
             class="font-manrope mb-14 text-2xl max-w-[650px]"
@@ -28,9 +29,10 @@ import TypingAnimation from '@/components/ui/typing-animation';
             Organización de educación en tecnologías y crecimiento personal para
             niños y jóvenes.
         </p>
+
         <a href="#planes">
             <button
-                class="bg-[#5C59C2] rounded-full px-14 py-4 text-white font-onest text-2xl hover:bg-[#4a489e] transition-colors duration-300 animation-boton_main"
+                class="bg-[#FFA09E] rounded-full px-14 py-4 text-white font-onest text-2xl hover:bg-[#ef9694] transition-colors duration-300 animation-boton_main"
                 style="font-weight: 700;  transition: transform 0.5s ease;"
                 >Suscríbete ahora</button
             >
@@ -38,25 +40,8 @@ import TypingAnimation from '@/components/ui/typing-animation';
     </div>
 
     <div class="flex justify-center items-center relative">
-        <div class="absolute left-5 top-24">
-            <div class="w-36 h-36 bg-[#5C59C2] rounded-full"></div>
-        </div>
-        <div class="absolute right-4 bottom-20">
-            <div class="w-36 h-36 bg-[#99DAD3] rounded-full"></div>
-        </div>
         <div class="relative">
-            <img class="w-[650px]" src="/main/adultos.png" alt="" />
+            <img class="w-[650px]" src="/mainniña.png" alt="" />
         </div>
     </div>
 </div>
-
-<script>
-    document
-        .querySelector('a[href="#planes"]')
-        ?.addEventListener('click', function (e) {
-            e.preventDefault();
-            document
-                .querySelector('#planes')
-                ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        });
-</script>

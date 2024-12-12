@@ -12,7 +12,7 @@ const estaConectado = !!cookies.access_token;
         <div class="flex flex-row items-center hover:animate-jiggle">
             <a href="/">
                 <img
-                    src="/logo_general.svg"
+                    src="/logo_adolescentes.svg"
                     class="w-[55px]"
                     alt="Logo FourDev"
                 />
@@ -61,8 +61,8 @@ const estaConectado = !!cookies.access_token;
                 estaConectado ? (
                     <a
                         id="dashboard-button"
-                        href="/cursos"
-                        class="text-[#fff] bg-[#5C59C2] items-center px-10 py-1 rounded-full text-lg hover:bg-[#4a489e] transition-colors duration-300 font-manrope"
+                        href="/dashboard"
+                        class="text-[#fff] bg-[#567896] items-center px-10 py-1 rounded-full text-lg hover:bg-[#4f6e8a] transition-colors duration-300 font-manrope"
                         style="font-weight: 800;"
                     >
                         Inicio
@@ -70,7 +70,7 @@ const estaConectado = !!cookies.access_token;
                 ) : (
                     <a
                         href="/login"
-                        class="text-[#fff] bg-[#5C59C2] items-center px-10 py-1 rounded-full text-lg hover:bg-[#4a489e] transition-colors duration-300 font-manrope"
+                        class="text-[#fff] bg-[#567896] items-center px-10 py-1 rounded-full text-lg hover:bg-[#4f6e8a] transition-colors duration-300 font-manrope"
                         style="font-weight: 800;"
                     >
                         Acceder
@@ -92,7 +92,7 @@ const estaConectado = !!cookies.access_token;
         });
 
     document
-        .querySelector('a[href="/#faq"]')
+        .querySelector('a[href="#faq"]')
         ?.addEventListener('click', function (e) {
             e.preventDefault();
             document

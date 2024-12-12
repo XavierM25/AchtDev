@@ -1,0 +1,130 @@
+<div
+    id="otpModal"
+    class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center"
+>
+    <div class="bg-white rounded-lg p-6 w-full max-w-md mx-4">
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-semibold text-[#222] font-onest">
+                Código de verificación
+            </h2>
+            <button
+                id="closeOtpModal"
+                class="text-gray-500 hover:text-gray-700"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <p class="text-gray-600 mb-6 font-inter text-sm">
+            Ingrese su confirmación que enviamos por correo electrónico
+        </p>
+
+        <div class="flex gap-2 mb-6 justify-center">
+            <input
+                type="text"
+                maxlength="1"
+                class="w-12 h-12 border-2 rounded text-center text-xl font-semibold focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition"
+            />
+            <input
+                type="text"
+                maxlength="1"
+                class="w-12 h-12 border-2 rounded text-center text-xl font-semibold focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition"
+            />
+            <input
+                type="text"
+                maxlength="1"
+                class="w-12 h-12 border-2 rounded text-center text-xl font-semibold focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition"
+            />
+            <input
+                type="text"
+                maxlength="1"
+                class="w-12 h-12 border-2 rounded text-center text-xl font-semibold focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition"
+            />
+            <input
+                type="text"
+                maxlength="1"
+                class="w-12 h-12 border-2 rounded text-center text-xl font-semibold focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition"
+            />
+            <input
+                type="text"
+                maxlength="1"
+                class="w-12 h-12 border-2 rounded text-center text-xl font-semibold focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition"
+            />
+        </div>
+
+        <button
+            id="verifyOtpButton"
+            class="w-full bg-blue-600 text-white rounded-lg px-4 py-3 font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300"
+        >
+            Continue
+        </button>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const otpInputs = document.querySelectorAll('.otp-input');
+        const verifyButton = document.getElementById('verifyOtpButton');
+        const otpModal = document.getElementById('otpModal');
+
+        verifyButton?.addEventListener('click', async () => {
+            const otp = Array.from(otpInputs)
+                .map((input) => (input as HTMLInputElement).value)
+                .join('');
+
+            if (otp.length !== 6) {
+                alert('Por favor, ingrese el código completo de 6 dígitos');
+                return;
+            }
+
+            try {
+                const response = await fetch(
+                    'http://localhost:3000/api/users/verify-otp',
+                    {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            email: (window as any).currentEmail,
+                            otp,
+                        }),
+                        credentials: 'include',
+                    }
+                );
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.message || 'Error al verificar OTP');
+                }
+
+                // Close modal and clear inputs
+                otpModal?.classList.add('hidden');
+                otpInputs.forEach(
+                    (input) => ((input as HTMLInputElement).value = '')
+                );
+
+                // Store the token
+                if (data.token) {
+                    localStorage.setItem('token', data.token);
+                }
+
+                // Redirect to dashboard
+                window.location.href = '/dashboard';
+            } catch (error: any) {
+                alert(error.message || 'Error al verificar el código');
+            }
+        });
+    });
+</script>
