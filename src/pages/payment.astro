@@ -1,0 +1,14 @@
+---
+import '@/styles/global.css';
+import PaymentLayout from '@/layouts/PaymentLayout.astro';
+
+import Header from '@/components/header.astro';
+import Products from '@/components/payment/products.astro';
+---
+
+<PaymentLayout>
+    <Header />
+    <div class="mt-28">
+        <Products />
+    </div>
+</PaymentLayout>
