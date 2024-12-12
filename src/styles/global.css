@@ -31,6 +31,8 @@
 
 .font-biryani {
   font-family: 'Biryani', sans-serif;
+<<<<<<< HEAD
+=======
 }
 
 @layer base {
@@ -132,4 +134,5 @@
     scrollbar-width: thin;
     scrollbar-color: #5C59C2 #d1d5db;
   }
+>>>>>>> 152d3aaab0c97fe3e96903fbbbf5ed8c85662cde
 }

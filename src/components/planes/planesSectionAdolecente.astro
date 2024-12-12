@@ -27,12 +27,12 @@ const plans = [
             'Certificado de finalización',
             'Recompensas por suscripción continuada',
         ],
-        color: '#9AD3CC',
+        color:  '#FDE969',//'#9AD3CC',
         colorText: '#414141',
-        colorBUtton: '#89C8C0',
+        colorBUtton: '#FDE969',
         logoColor: '#414141',
-        hoverButton: '#444199',
-        textColorButton:'#6188B3'
+        hoverButton: '#E4D367',
+        textColorButton: '#414141',
     },
     {
         title: 'Plan Team',
@@ -44,27 +44,24 @@ const plans = [
             'Certificado de finalización',
             'Recompensas por suscripción continuada',
         ],
-        color: '#5C59C2',
+        color: '#6188B3',
         colorText: '#fff',
-        colorBUtton: '#5350B9',
+        colorBUtton: '#6188B3',
         logoColor: '#ffffff',
-        hoverButton: '#444199',
+        hoverButton: '#56789E',
         textColorButton: '#fff',
     },
 ];
 import PlanCard from './planCard.astro';
 import '@/styles/global.css';
-import SparklesText from '@/components/ui/sparkles-text';
 ---
 
 <h1
     class="font-onest justify-center flex text-5xl mb-5"
     style="font-weight: 800;"
 >
-    <span class="text-[#5C59C2] z-10">
-        <SparklesText text="Escoge " client:load />
-    </span>
-    <span class="text-[#414141] text-6xl font-onest"> tu plan </span>
+    <span class="text-[#56789E]">Escoge&nbsp;</span>
+    <span class="text-[#414141]">tu plan</span>
 </h1>
 <p
     class="font-onest mx-auto text-xl mb-14 max-w-[500px]"

@@ -1,0 +1,95 @@
+---
+import '@/styles/global.css';
+import cookie from 'cookie';
+const cookies = cookie.parse(Astro.request.headers.get('cookie') || '');
+const estaConectado = !!cookies.access_token;
+---
+
+<header
+    class="header fixed flex w-[900px] justify-center left-1/2 transform -translate-x-1/2 top-6 rounded-full bg-[#FFFFFF] shadow-md z-50"
+>
+    <nav class="flex justify-between w-full mx-10 h-[60px]">
+        <div class="flex flex-row items-center hover:animate-jiggle">
+            <a href="/">
+                <img
+                    src="/AchtDev_Logo.svg"
+                    class="w-[55px]"
+                    alt="Logo FourDev"
+                />
+            </a>
+        </div>
+
+        <div class="flex items-center right-0 static">
+            <ul
+                class="flex flex-col space-y-4 lg:flex-row lg:space-y-0 lg:space-x-12 font-onest text-lg"
+                style="font-weight: 600;"
+            >
+                <li>
+                    <a
+                        href="#planes"
+                        class="nav-link text-[#222] hover:text-[#567896] transition-colors duration-300"
+                        >Planes</a
+                    >
+                </li>
+
+                <li>
+                    <a
+                        href="#faq"
+                        class="nav-link text-[#222] hover:text-[#567896] transition-colors duration-300"
+                        >Faq</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="/beca"
+                        class="nav-link text-[#222] hover:text-[#567896] transition-colors duration-300"
+                        >Beca</a
+                    >
+                </li>
+            </ul>
+        </div>
+
+        <div class="hidden lg:flex items-center space-x-2">
+            {
+                estaConectado ? (
+                    <a
+                        id="dashboard-button"
+                        href="/dashboard"
+                        class="text-[#fff] bg-[#567896] items-center px-10 py-1 rounded-full text-lg hover:bg-[#567896] transition-colors duration-300 font-manrope hover:animate-heartbeat"
+                        style="font-weight: 800;"
+                    >
+                        Inicio
+                    </a>
+                ) : (
+                    <a
+                        href="/login"
+                        class="text-[#fff] bg-[#567896] items-center px-10 py-1 rounded-full text-lg hover:bg-[#567896] transition-colors duration-300 font-manrope hover:animate-heartbeat"
+                        style="font-weight: 800;"
+                    >
+                        Acceder
+                    </a>
+                )
+            }
+        </div>
+    </nav>
+</header>
+
+<script define:vars={{ estaConectado }}>
+    document
+        .querySelector('a[href="#planes"]')
+        ?.addEventListener('click', function (e) {
+            e.preventDefault();
+            document
+                .querySelector('#planes')
+                ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+
+    document
+        .querySelector('a[href="#faq"]')
+        ?.addEventListener('click', function (e) {
+            e.preventDefault();
+            document
+                .querySelector('#faq')
+                ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+</script>

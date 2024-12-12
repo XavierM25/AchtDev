@@ -1,0 +1,305 @@
+---
+import '@/styles/global.css'
+import Header from '@/components/header.astro'
+import Footer from './footer/footer.astro'
+---
+<body class="">
+    <Header />
+    <div class="flex flex-col items-center mt-28 mb-16 px-8"> <!-- Agregamos padding general con px-8 -->
+        <!-- BARRA SUPERIOR -->
+        <div class="flex justify-between items-center w-full max-w-[1450px] h-[230px] bg-[#5C59C2] rounded-[45px] mt-5 shadow-xl">
+            <div class="p-14 pt-5 pb-9">
+                <h1 class="text-[#ffffff] text-[35px] font-onest font-bold">
+                    ¿Qué quieres <span class="text-[#9AD3CC]">aprender hoy?</span>
+                </h1>
+                <form class="flex" action="/buscar" method="GET">
+                    <div class="flex bg-white p-1 pl-4 pr-3 mt-4 rounded-[30px] shadow-md">
+                        <button type="submit" class="bg-transparent border-none">
+                            <img class="w-6 mr-2" src="../search.svg" alt="buscar">
+                        </button>
+                        <input
+                            type="search"
+                            name="query"
+                            placeholder="Encuentra tu curso perfecto..."
+                            class="border-none rounded-lg p-2 w-[480px] focus:outline-none font-onest">
+                    </div>
+                </form>
+            </div>
+            <div>
+                <img class="h-[230px] rounded-[45px]" src="/ojos_buscador.svg" alt="ojos">
+            </div>
+        </div>
+    
+        <!-- CATEGORÍAS -->
+        <div class="mt-14 w-full max-w-[1450px]">
+            <label class="text-[#414141] text-[20px] font-onest font-semibold">Categorías</label>
+            <div class="flex mt-8 gap-20 justify-center">
+                <button class="flex flex-col justify-between items-center w-32 bg-white pt-8 hover:shadow-xl shadow-xl transition" style="border-radius: 17px;">
+                    <img class="w-12" src="../categoria1.svg" alt="Programación Básica">
+                    <label class="font-onest text-[12px] font-medium mt-2 pl-4 pr-4 pb-6">Programación Básica</label>
+                    <div class="bg-[#FFDAD3] h-4 w-full" style="border-bottom-left-radius: 17px; border-bottom-right-radius: 17px;"></div>
+                </button>
+
+                <button class="flex flex-col justify-between items-center w-32 bg-white pt-8 hover:shadow-xl shadow-xl transition" style="border-radius: 17px;">
+                    <img class="w-10" src="../categoria2.svg" alt="Programación Básica">
+                    <label class="font-onest text-[12px] font-medium mt-2 pl-4 pr-4 pb-6">Programación Básica</label>
+                    <div class="bg-[#FFEDA5] h-4 w-full" style="border-bottom-left-radius: 17px; border-bottom-right-radius: 17px;"></div>
+                </button>
+
+                <button class="flex flex-col justify-between items-center w-32 bg-white pt-8 hover:shadow-xl shadow-xl transition" style="border-radius: 17px;">
+                    <img class="w-12" src="../categoria3.svg" alt="Programación Básica">
+                    <label class="font-onest text-[12px] font-medium mt-2 pl-4 pr-4 pb-6">Programación Básica</label>
+                    <div class="bg-[#B9FFB9] h-4 w-full" style="border-bottom-left-radius: 17px; border-bottom-right-radius: 17px;"></div>
+                </button>
+
+                <button class="flex flex-col justify-between items-center w-32 bg-white pt-8 hover:shadow-xl shadow-xl transition" style="border-radius: 17px;">
+                    <img class="w-10" src="../categoria4.svg" alt="Programación Básica">
+                    <label class="font-onest text-[12px] font-medium mt-2 pl-4 pr-4 pb-6">Programación Básica</label>
+                    <div class="bg-[#C3EDFF] h-4 w-full" style="border-bottom-left-radius: 17px; border-bottom-right-radius: 17px;"></div>
+                </button>
+
+                <button class="flex flex-col justify-between items-center w-32 bg-white pt-8 hover:shadow-xl shadow-xl transition" style="border-radius: 17px;">
+                    <img class="w-12" src="../categoria5.svg" alt="Programación Básica">
+                    <label class="font-onest text-[12px] font-medium mt-2 pl-4 pr-4 pb-6">Programación Básica</label>
+                    <div class="bg-[#D5CEFF] h-4 w-full" style="border-bottom-left-radius: 17px; border-bottom-right-radius: 17px;"></div>
+                </button>
+            </div>
+        </div>
+    
+        <!-- FILTROS Y CURSOS -->
+        <div class="flex flex-row w-full max-w-[1450px] mt-20">
+            <!-- FILTROS -->
+            <div class="mr-8">
+                <label class="text-[#414141] text-[20px] font-onest font-semibold">Filtros</label>
+                <div class="bg-white w-[320px] p-10 pb-32 mt-8 shadow-lg" style="border-radius: 40px;">
+                    <div class="flex mb-6">
+                        <!-- Filtros seleccionados --> 
+                        <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm flex items-center mr-3">
+                            MiniDev
+                            <button class="ml-2 text-gray-500 hover:text-gray-700">&times;</button>
+                        </span>
+                        <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm flex items-center">
+                            Pago
+                            <button class="ml-2 text-gray-500 hover:text-gray-700">&times;</button>
+                        </span>
+                    </div>
+                    
+                    <!-- Niveles -->
+                    <div class="mb-4">
+                        <button id="toggle-niveles" class="w-full flex justify-between items-center text-gray-700 font-medium">
+                        Niveles
+                        <span id="arrow-niveles" class="transform transition-transform">&#9656;</span>
+                        </button>
+                        <div id="content-niveles" class="hidden mt-2">
+                        <label class="flex items-center mb-2">
+                            <input type="radio" name="niveles" value="MiniDev" class="mr-2">
+                            MiniDev
+                        </label>
+                        <label class="flex items-center mb-2">
+                            <input type="radio" name="niveles" value="JuniorDev" class="mr-2">
+                            JuniorDev
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="niveles" value="SeniorDev" class="mr-2">
+                            SeniorDev
+                        </label>
+                        </div>
+                    </div>
+                
+                    <!-- Valor -->
+                    <div class="mb-4">
+                        <button id="toggle-valor" class="w-full flex justify-between items-center text-gray-700 font-medium">
+                        Valor
+                        <span id="arrow-valor" class="transform transition-transform">&#9656;</span>
+                        </button>
+                        <div id="content-valor" class="hidden mt-2">
+                        <label class="flex items-center mb-2">
+                            <input type="radio" name="valor" value="Gratis" class="mr-2">
+                            Gratis
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="valor" value="Paga" class="mr-2">
+                            Paga
+                        </label>
+                        </div>
+                    </div>
+                
+                    <!-- Precio -->
+                    <div>
+                        <label class="w-full flex justify-between items-center text-gray-700 font-medium">Precio</label>
+                        <div id="content-precio" class="mt-2 flex gap-2">
+                            <input type="number" placeholder="min" class="border border-gray-300 rounded-md p-1 w-full">
+                            <span class="text-gray-500">-</span>
+                            <input type="number" placeholder="max" class="border border-gray-300 rounded-md p-1 w-full">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- CURSOS -->
+            <div class="flex flex-col">
+                <label class="text-[#414141] text-[20px] font-onest font-semibold">Todos los cursos</label>
+                <div class="flex gap-8 mt-8 flex-wrap">
+                    <!-- Tarjetas de cursos -->
+                    <div class="bg-white w-[340px] shadow-lg" style="border-radius: 30px;">
+                        <img class="w-full" style="border-top-left-radius: 30px; border-top-right-radius: 30px;" src="curso1.jpg" alt="curso1">
+                        <div class="p-8 pt-6">
+                            <label class="text-[19px]" style="font-weight:600;">Introducción a la programación</label>
+                            <div class="flex mt-4 mb-2.5 items-center">
+                                <img class="w-6" src="docente1.svg" alt="docente">
+                                <label class="pl-1.5 text-[15px]" style="color:#7D7D7D">Prof. César Martinez</label>
+                            </div>
+                            <div class="flex mb-12">
+                                <img class="w-5" src="level.svg" alt="nivel">
+                                <label class="pl-1.5 text-[15px]" style="color:#7D7D7D">MiniDevs</label>
+                            </div>
+                            <div class="flex flex-row justify-between">
+                                <div class="flex gap-2">
+                                    <label class="bg-[#F7D7D0] text-[15px] pt-2 pl-4 pr-4" style="font-weight:600; border-radius: 20px;">P.B.</label>
+                                    <img class="w-6" src="pago.svg" alt="pago">
+                                </div>
+                                <button class="bg-[#5C59C2] text-[15px] text-[#ffffff] p-2 pl-10 pr-10" style="font-weight:600; border-radius: 20px;">Agregar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white w-[340px] shadow-lg" style="border-radius: 30px;">
+                        <img class="w-full" style="border-top-left-radius: 30px; border-top-right-radius: 30px;" src="curso1.jpg" alt="curso1">
+                        <div class="p-8 pt-6">
+                            <label class="text-[19px]" style="font-weight:600;">Introducción a la programación</label>
+                            <div class="flex mt-4 mb-2.5 items-center">
+                                <img class="w-6" src="docente1.svg" alt="docente">
+                                <label class="pl-1.5 text-[15px]" style="color:#7D7D7D">Prof. César Martinez</label>
+                            </div>
+                            <div class="flex mb-12">
+                                <img class="w-5" src="level.svg" alt="nivel">
+                                <label class="pl-1.5 text-[15px]" style="color:#7D7D7D">MiniDevs</label>
+                            </div>
+                            <div class="flex flex-row justify-between">
+                                <div class="flex gap-2">
+                                    <label class="bg-[#F7D7D0] text-[15px] pt-2 pl-4 pr-4" style="font-weight:600; border-radius: 20px;">P.B.</label>
+                                    <img class="w-6" src="pago.svg" alt="pago">
+                                </div>
+                                <button class="bg-[#5C59C2] text-[15px] text-[#ffffff] p-2 pl-10 pr-10" style="font-weight:600; border-radius: 20px;">Agregar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white w-[340px] shadow-lg" style="border-radius: 30px;">
+                        <img class="w-full" style="border-top-left-radius: 30px; border-top-right-radius: 30px;" src="curso1.jpg" alt="curso1">
+                        <div class="p-8 pt-6">
+                            <label class="text-[19px]" style="font-weight:600;">Introducción a la programación</label>
+                            <div class="flex mt-4 mb-2.5 items-center">
+                                <img class="w-6" src="docente1.svg" alt="docente">
+                                <label class="pl-1.5 text-[15px]" style="color:#7D7D7D">Prof. César Martinez</label>
+                            </div>
+                            <div class="flex mb-12">
+                                <img class="w-5" src="level.svg" alt="nivel">
+                                <label class="pl-1.5 text-[15px]" style="color:#7D7D7D">MiniDevs</label>
+                            </div>
+                            <div class="flex flex-row justify-between">
+                                <div class="flex gap-2">
+                                    <label class="bg-[#F7D7D0] text-[15px] pt-2 pl-4 pr-4" style="font-weight:600; border-radius: 20px;">P.B.</label>
+                                    <img class="w-6" src="pago.svg" alt="pago">
+                                </div>
+                                <button class="bg-[#5C59C2] text-[15px] text-[#ffffff] p-2 pl-10 pr-10" style="font-weight:600; border-radius: 20px;">Agregar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white w-[340px] shadow-lg" style="border-radius: 30px;">
+                        <img class="w-full" style="border-top-left-radius: 30px; border-top-right-radius: 30px;" src="curso1.jpg" alt="curso1">
+                        <div class="p-8 pt-6">
+                            <label class="text-[19px]" style="font-weight:600;">Introducción a la programación</label>
+                            <div class="flex mt-4 mb-2.5 items-center">
+                                <img class="w-6" src="docente1.svg" alt="docente">
+                                <label class="pl-1.5 text-[15px]" style="color:#7D7D7D">Prof. César Martinez</label>
+                            </div>
+                            <div class="flex mb-12">
+                                <img class="w-5" src="level.svg" alt="nivel">
+                                <label class="pl-1.5 text-[15px]" style="color:#7D7D7D">MiniDevs</label>
+                            </div>
+                            <div class="flex flex-row justify-between">
+                                <div class="flex gap-2">
+                                    <label class="bg-[#F7D7D0] text-[15px] pt-2 pl-4 pr-4" style="font-weight:600; border-radius: 20px;">P.B.</label>
+                                    <img class="w-6" src="pago.svg" alt="pago">
+                                </div>
+                                <button class="bg-[#5C59C2] text-[15px] text-[#ffffff] p-2 pl-10 pr-10" style="font-weight:600; border-radius: 20px;">Agregar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white w-[340px] shadow-lg" style="border-radius: 30px;">
+                        <img class="w-full" style="border-top-left-radius: 30px; border-top-right-radius: 30px;" src="curso1.jpg" alt="curso1">
+                        <div class="p-8 pt-6">
+                            <label class="text-[19px]" style="font-weight:600;">Introducción a la programación</label>
+                            <div class="flex mt-4 mb-2.5 items-center">
+                                <img class="w-6" src="docente1.svg" alt="docente">
+                                <label class="pl-1.5 text-[15px]" style="color:#7D7D7D">Prof. César Martinez</label>
+                            </div>
+                            <div class="flex mb-12">
+                                <img class="w-5" src="level.svg" alt="nivel">
+                                <label class="pl-1.5 text-[15px]" style="color:#7D7D7D">MiniDevs</label>
+                            </div>
+                            <div class="flex flex-row justify-between">
+                                <div class="flex gap-2">
+                                    <label class="bg-[#F7D7D0] text-[15px] pt-2 pl-4 pr-4" style="font-weight:600; border-radius: 20px;">P.B.</label>
+                                    <img class="w-6" src="pago.svg" alt="pago">
+                                </div>
+                                <button class="bg-[#5C59C2] text-[15px] text-[#ffffff] p-2 pl-10 pr-10" style="font-weight:600; border-radius: 20px;">Agregar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white w-[340px] shadow-lg" style="border-radius: 30px;">
+                        <img class="w-full" style="border-top-left-radius: 30px; border-top-right-radius: 30px;" src="curso1.jpg" alt="curso1">
+                        <div class="p-8 pt-6">
+                            <label class="text-[19px]" style="font-weight:600;">Introducción a la programación</label>
+                            <div class="flex mt-4 mb-2.5 items-center">
+                                <img class="w-6" src="docente1.svg" alt="docente">
+                                <label class="pl-1.5 text-[15px]" style="color:#7D7D7D">Prof. César Martinez</label>
+                            </div>
+                            <div class="flex mb-12">
+                                <img class="w-5" src="level.svg" alt="nivel">
+                                <label class="pl-1.5 text-[15px]" style="color:#7D7D7D">MiniDevs</label>
+                            </div>
+                            <div class="flex flex-row justify-between">
+                                <div class="flex gap-2">
+                                    <label class="bg-[#F7D7D0] text-[15px] pt-2 pl-4 pr-4" style="font-weight:600; border-radius: 20px;">P.B.</label>
+                                    <img class="w-6" src="pago.svg" alt="pago">
+                                </div>
+                                <button class="bg-[#5C59C2] text-[15px] text-[#ffffff] p-2 pl-10 pr-10" style="font-weight:600; border-radius: 20px;">Agregar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <Footer />
+</body>
+
+<script>
+    // Función para manejar el toggle
+    function setupToggle(buttonId: string, contentId: string, arrowId: string): void {
+        const button = document.getElementById(buttonId) as HTMLButtonElement | null;
+        const content = document.getElementById(contentId) as HTMLElement | null;
+        const arrow = document.getElementById(arrowId) as HTMLElement | null;
+
+    if (!button || !content || !arrow) {
+        console.error(`Elementos con ID ${buttonId}, ${contentId}, o ${arrowId} no encontrados.`);
+        return; // Evitar ejecutar el resto si falta algún elemento
+    }
+
+    button.addEventListener('click', () => {
+        content.classList.toggle('hidden'); // Esto ya es seguro porque se validó antes
+        arrow.classList.toggle('rotate-90');
+    });
+    }
+
+    // Configurar toggles
+    setupToggle('toggle-niveles', 'content-niveles', 'arrow-niveles');
+    setupToggle('toggle-valor', 'content-valor', 'arrow-valor');
+    setupToggle('toggle-precio', 'content-precio', 'arrow-precio');
+</script>

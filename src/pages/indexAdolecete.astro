@@ -1,22 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
-<<<<<<< HEAD
-import Planes from '@/components/planes/index_planes.astro';
-import Becas from '@/components/main/index_becas.astro';
-import Header from '@/components/header.astro';
-import Main from '@/components/main/index_main.astro';
-import Carrusel from '@/components/main/index_carrusel.astro';
-import FAQ from '@/components/main/index_FAQ.astro';
-import Footer from '@/components/footer/footer.astro';
-=======
 import PlanesAdolecente from '@/components/planes/planesSectionAdolecente.astro';//Nuevo
 import Becas from '@/components/main/beca/index_becas.astro';
 import Headeradolecente from '@/components/headerAdolecente.astro';
-import Mainadolecente from '@/components//main/main/index_mainAdolecente.astro';
+import Main from '@/components//main/main/index_main.astro';
 import CarruselAdolecente from '@/components/main/carrusel/index_carruselAdolecente.astro';
-import FAQ_adolecente from '@/components/main/FAQ/index_FAQ_Adolecente.astro';
+import FAQ from '@/components/main/FAQ/index_FAQ.astro';
 import FooterAdolecente from '@/components/footer/footerAdolecente.astro';
->>>>>>> 6ec001c374de3248aeadc0e1c9efd6118b4f4a31
 import { VelocityScroll } from '@/components/ui/scroll-based-velocity';
 
 import '@/styles/global.css';
@@ -25,7 +15,7 @@ import '@/styles/global.css';
 <Layout>
 	<Headeradolecente />
 	<div class="mt-20">
-		<Mainadolecente />
+		<Main />
 	</div>
 	<div class="mt-20">
 		<CarruselAdolecente />
@@ -34,7 +24,7 @@ import '@/styles/global.css';
 		<PlanesAdolecente />
 	</div>
 	<div class="mt-44">
-		<section class="overflow-hidden w-full py-16 bg-[#56789E]">
+		<section class="overflow-hidden w-full py-16 bg-[#5C59C2]">
 			<VelocityScroll
 				text="Educando con tecnología"
 				default_velocity={5}
@@ -44,7 +34,7 @@ import '@/styles/global.css';
 		</section>
 	</div>
 	<div id="faq" class="mt-44">
-		<FAQ_adolecente />
+		<FAQ />
 	</div>
 	<div class="mt-44">
 		<FooterAdolecente />
