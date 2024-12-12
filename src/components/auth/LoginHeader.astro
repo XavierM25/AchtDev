@@ -1,0 +1,26 @@
+---
+import { FadeText } from '../ui/fade-text';
+---
+
+<section class="flex justify-center flex-col items-center mt-10">
+    <img src="/AchtDev_Logo.svg" class="w-[100px] mb-4" alt="Logo FourDev" />
+    <FadeText
+        className="font-onest text-4xl mt-6 font-bold text-black dark:text-white"
+        direction="left"
+        framerProps={{
+            show: { transition: { delay: 0.4 } },
+        }}
+        text="Bienvenido"
+        client:load
+    />
+
+    <FadeText
+        className="font-montserrat text-2xl mt-2 font-light text-black dark:text-white"
+        direction="right"
+        framerProps={{
+            show: { transition: { delay: 0.4 } },
+        }}
+        text="Por favor, ingrese las credenciales necesarias"
+        client:load
+    />
+</section>

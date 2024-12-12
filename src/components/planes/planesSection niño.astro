@@ -1,0 +1,88 @@
+---
+const plans = [
+    {
+        title: 'Plan Staff',
+        price: 'S/. 200 /Anual',
+        benefits: [
+            'Acceso completo a todos los cursos',
+            'Certificado de finalización',
+            'Recompensas por suscripción continuada',
+            'Certificado de finalización',
+            'Recompensas por suscripción continuada',
+        ],
+        color: '#FFC122',
+        colorText: '#414141',
+        colorBUtton: '#EAEAEA',
+        logoColor: '#FFC122',
+        hoverButton: '#c7c7c7',
+        textColorButton: '#FFC122',
+    },
+    {
+        title: 'Plan Duo',
+        price: 'S/. 350 /Anual',
+        benefits: [
+            'Acceso completo a todos los cursos',
+            'Certificado de finalización',
+            'Recompensas por suscripción continuada',
+            'Certificado de finalización',
+            'Recompensas por suscripción continuada',
+        ],
+        color: '#62D4D4',
+        colorText: '#414141',
+        colorBUtton: '#EAEAEA',
+        logoColor: '#62D4D4',
+        hoverButton: '#c7c7c7',
+        textColorButton: '#205D76',
+    },
+    {
+        title: 'Plan Team',
+        price: 'S/. 500 /Anual',
+        benefits: [
+            'Acceso completo a todos los cursos',
+            'Certificado de finalización',
+            'Recompensas por suscripción continuada',
+            'Certificado de finalización',
+            'Recompensas por suscripción continuada',
+        ],
+        color: '#FFA3A1',
+        colorText: '#414141',
+        colorBUtton: '#EAEAEA',
+        logoColor: '#FFA3A1',
+        hoverButton: '#c7c7c7',
+        textColorButton: '#FFA09E',
+    },
+];
+import PlanCard from './planCard niño.astro';
+import '@/styles/global.css';
+---
+
+<h1
+    class="font-onest justify-center flex text-5xl mb-5"
+    style="font-weight: 800;"
+>
+    <span class="text-[#205D76]">Escoge&nbsp;</span>
+    <span class="text-[#205D76]">tu plan</span>
+</h1>
+<p
+    class="font-onest mx-auto text-xl mb-14 max-w-[500px]"
+    style="font-weight: 400; text-align: center;"
+>
+    Escoge uno de nuestros planes, para tí y para tus amigos
+</p>
+<div class="flex flex-row gap-8 justify-center">
+    {
+        plans.map((plan) => (
+            <PlanCard
+                title={plan.title}
+                price={plan.price}
+                benefits={plan.benefits}
+                color={plan.color}
+                colorText={plan.colorText}
+                colorBUtton={plan.colorBUtton}
+                logoColor={plan.logoColor}
+                hoverButton={plan.hoverButton}
+                textColorButton={plan.textColorButton}
+            />
+        ))
+    }
+</div>

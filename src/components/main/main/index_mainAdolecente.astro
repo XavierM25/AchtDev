@@ -1,17 +1,25 @@
 ---
 import '@/styles/global.css';
+import WordPullUp from '@/components/ui/word-pull-up';
+import TypingAnimation from '@/components/ui/typing-animation';
 ---
 
 <div class="flex justify-center items-center">
     <div class="">
-        <p
-            class="font-monserrat text-6xl max-w-[800px] text-[#414141] mb-4"
-            style="font-weight: 800;"
+        <h1
+            class="font-monserrat text-6xl max-w-[800px] text-[#414141] mb-4 text-left font-bold"
         >
-            Nunca es demasiado temprano ni tarde para empezar a <span
-                class="text-[#6188B3] font-cascadia">programar.</span
-            >
-        </p>
+            <WordPullUp
+                className=""
+                words="Nunca es demasiado temprano ni tarde para empezar a"
+                client:load
+            />
+            <TypingAnimation
+                text="programar."
+                client:load
+                className="text-[#56789E] font-cascadia"
+            />
+        </h1>
 
         <p
             class="font-manrope mb-14 text-2xl max-w-[650px]"
@@ -21,8 +29,9 @@ import '@/styles/global.css';
             niños y jóvenes.
         </p>
         <button
-            class="bg-[#6188B3] rounded-full px-14 py-4 text-white font-onest text-2xl hover:bg-[#56789E] transition-colors duration-300 animate-pop"
-            style="font-weight: 700;">Suscríbete ahora</button
+            class="bg-[#56789E] rounded-full px-14 py-4 text-white font-onest text-2xl hover:bg-[#33557A] transition-colors duration-300 animation-boton_main"
+            style="font-weight: 700;  transition: transform 0.5s ease;"
+            >Suscríbete ahora</button
         >
     </div>
 

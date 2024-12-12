@@ -1,0 +1,49 @@
+<div class="w-full max-w-md mx-auto bg-white p-6 rounded-lg shadow-md space-y-6">
+    <!-- Sistema de pestañas -->
+    <div class="flex justify-center gap-4 border-b border-gray-200 pb-2">
+      <button class="px-4 py-2 text-yellow-600 border-b-2 border-yellow-600 font-semibold focus:outline-none">
+        Editar perfil
+      </button>
+      <button class="px-4 py-2 text-gray-500 hover:text-yellow-600 focus:outline-none">
+        Contraseña
+      </button>
+    </div>
+  
+    <!-- Formulario -->
+    <form class="space-y-4">
+      <div>
+        <label for="old-password" class="block text-sm font-medium text-gray-700">Contraseña anterior</label>
+        <input
+          type="password"
+          id="old-password"
+          class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500 sm:text-sm"
+          placeholder="hola"
+        />
+      </div>
+      <div>
+        <label for="new-password" class="block text-sm font-medium text-gray-700">Contraseña nueva*</label>
+        <input
+          type="password"
+          id="new-password"
+          class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500 sm:text-sm"
+          placeholder="hola2"
+        />
+      </div>
+      <div>
+        <label for="confirm-password" class="block text-sm font-medium text-gray-700">Confirmar nueva contraseña*</label>
+        <input
+          type="password"
+          id="confirm-password"
+          class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500 sm:text-sm"
+          placeholder="hola2"
+        />
+      </div>
+      <button
+        type="submit"
+        class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
+      >
+        Guardar cambios
+      </button>
+    </form>
+  </div>
+  

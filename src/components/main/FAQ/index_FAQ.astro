@@ -1,5 +1,6 @@
 ---
 import Accordion from '@/components/Accordion.astro';
+import SparklesText from '@/components/ui/sparkles-text';
 import '@/styles/global.css';
 ---
 
@@ -8,8 +9,10 @@ import '@/styles/global.css';
         class="font-onest justify-center flex text-5xl mb-5"
         style="font-weight: 800;"
     >
-        <span class="text-[#5C59C2]">Preguntas&nbsp;</span>
-        <span class="text-[#414141]">frecuentes</span>
+        <span class="text-[#5C59C2] z-10">
+            <SparklesText text="Preguntas " client:load />
+        </span>
+        <span class="text-[#414141] text-6xl font-onest"> frecuentes </span>
     </h1>
     <p
         class="font-onest justify-center flex text-xl mb-14"

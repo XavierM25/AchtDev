@@ -1,0 +1,56 @@
+---
+import AuthLayout from '@/layouts/AuthLayout.astro';
+import RegisterHeader from '@/components/auth/RegisterHeader.astro';
+import RegisterSocials from '@/components/auth/RegisterSocials.astro';
+import RegisterForm from '@/components/auth/RegisterForm.astro';
+import AuthDesign from '@/components/AuthDesign.astro';
+import '@/styles/global.css';
+---
+
+<AuthLayout>
+    <div
+        class="animate-fade-in flex justify-center gap-48 p-2 mx-52 items-center"
+    >
+        <div class="flex flex-col">
+            <a
+                class="flex flex-row mb-4 items-center w-24 justify-center bg-[#414141] py-2 rounded-lg"
+                href="/login"
+            >
+                <svg
+                    data-testid="geist-icon"
+                    height="16"
+                    stroke-linejoin="round"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    style="color:currentcolor"
+                    class="mr-2"
+                >
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="m10.5 14.06-.53-.53-4.824-4.823a1 1 0 0 1 0-1.414L9.97 2.47l.53-.53L11.56 3l-.53.53L6.56 8l4.47 4.47.53.53z"
+                        fill="white"></path>
+                </svg>
+                <p class="font-manrope text-white" style="font-weight: 700;">
+                    Atrás
+                </p>
+            </a>
+            <AuthDesign />
+        </div>
+        <div class="flex flex-col">
+            <RegisterHeader />
+            <RegisterSocials />
+            <div class="mt-8 flex flex-row items-center gap-8 justify-center">
+                <div class="w-32 h-[1px] bg-[#C8C6C6]"></div>
+                <p
+                    class="font-biryani text-[#828282]"
+                    style="font-weight: 600;"
+                >
+                    O
+                </p>
+                <div class="w-32 h-[1px] bg-[#C8C6C6]"></div>
+            </div>
+            <RegisterForm />
+        </div>
+    </div>
+</AuthLayout>

@@ -2,27 +2,39 @@
 import Layout from '../layouts/Layout.astro';
 import PlanesAdolecente from '@/components/planes/planesSectionAdolecente.astro';//Nuevo
 import Becas from '@/components/main/beca/index_becas.astro';
-import Headeradolecente from '@/components/headerAdolecente.astro';//Nuevo
-import Main from '@/components//main/main/index_mainAdolecente.astro';
+import Headeradolecente from '@/components/headerAdolecente.astro';
+import Mainadolecente from '@/components//main/main/index_mainAdolecente.astro';
 import CarruselAdolecente from '@/components/main/carrusel/index_carruselAdolecente.astro';
-import FAQadolecente from '@/components/main/FAQ/index_FAQ_Adolecente.astro';//NUEVO
-import FooterAdolecente from '@/components/footer/footerAdolecente.astro';//Nuevo
+import FAQ_adolecente from '@/components/main/FAQ/index_FAQ_Adolecente.astro';
+import FooterAdolecente from '@/components/footer/footerAdolecente.astro';
+import { VelocityScroll } from '@/components/ui/scroll-based-velocity';
+
 import '@/styles/global.css';
 ---
 
 <Layout>
 	<Headeradolecente />
 	<div class="mt-20">
-		<Main />
+		<Mainadolecente />
 	</div>
 	<div class="mt-20">
 		<CarruselAdolecente />
 	</div>
-	<div class="mt-44">
+	<div id="planes" class="mt-44">
 		<PlanesAdolecente />
 	</div>
 	<div class="mt-44">
-		<FAQadolecente />
+		<section class="overflow-hidden w-full py-16 bg-[#56789E]">
+			<VelocityScroll
+				text="Educando con tecnología"
+				default_velocity={5}
+				className="font-onest text-center text-4xl font-bold tracking-[-0.05rem] text-[white] drop-shadow-sm dark:text-white md:text-7xl md:leading-[5rem]"
+				client:load
+			/>
+		</section>
+	</div>
+	<div id="faq" class="mt-44">
+		<FAQ_adolecente />
 	</div>
 	<div class="mt-44">
 		<FooterAdolecente />

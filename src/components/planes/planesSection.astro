@@ -54,14 +54,17 @@ const plans = [
 ];
 import PlanCard from './planCard.astro';
 import '@/styles/global.css';
+import SparklesText from '@/components/ui/sparkles-text';
 ---
 
 <h1
     class="font-onest justify-center flex text-5xl mb-5"
     style="font-weight: 800;"
 >
-    <span class="text-[#9AD3CC]">Escoge&nbsp;</span>
-    <span class="text-[#414141]">tu plan</span>
+    <span class="text-[#5C59C2] z-10">
+        <SparklesText text="Escoge " client:load />
+    </span>
+    <span class="text-[#414141] text-6xl font-onest"> tu plan </span>
 </h1>
 <p
     class="font-onest mx-auto text-xl mb-14 max-w-[500px]"
