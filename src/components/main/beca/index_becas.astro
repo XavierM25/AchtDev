@@ -1,0 +1,135 @@
+---
+import '@/styles/global.css'
+import Header from '@/components/header.astro'
+---
+<body class="" style="background-color: #e8edeb">
+    <Header />
+    <div class="flex flex-col mx-auto mt-28 mb-16 px-8 max-w-[1450px] w-full">
+        <label class="font-onest">Beneficio Educativo</label>
+        <h1 class="text-[40px] text-[#5C59C2] font-biryani pt-3 pb-5" style="font-weight:800;">Acht
+            <span class="text-[#9AD3CC]">Dev</span>
+            <span class="text-[#414141]"> te ayuda</span>
+        </h1>
+        <p class="font-onest text-[18px] text-[#414141]" style="line-height: 2.2;">En nuestra plataforma educativa, ofrecemos una Beca de Ayuda Económica destinada a usuarios que desean avanzar en su formación, pero no pueden adquirir una suscripción debido a su situación financiera. Esta beca tiene como objetivo proporcionar acceso completo a nuestros cursos, recursos y herramientas avanzadas, asegurando que el aprendizaje no sea un privilegio limitado por la capacidad de pago.
+            Para postular a la beca, los usuarios deben cumplir con una serie de requisitos que demuestran tanto su compromiso con el aprendizaje como su necesidad económica. Entre los requisitos, se encuentran aprobar al menos 2 cursos gratuitos, completar un examen final, y presentar una justificación económica a través de documentos como comprobantes de ingresos, cartas de referencia o declaraciones juradas.
+            Nuestra misión es eliminar barreras y facilitar el acceso a la educación, brindando una oportunidad justa para aquellos que desean mejorar sus habilidades y conocimientos, pero enfrentan dificultades económicas.
+        </p>
+        <label class="font-onest text-[18px] text-[#414141]" style="font-weight: 700; line-height: 2.2;">
+            ¡Con nuestra beca, todos pueden tener la posibilidad de alcanzar sus metas educativas!
+        </label>
+        <!-- CURSOS -->
+        <h2 class="font-onest text-[19px] text-[#414141] mt-12" style="font-weight:700;">Cursos necesarios</h2>
+        <div class="flex gap-8 mt-6 flex-wrap">
+            <!-- Tarjetas de cursos -->
+            <div class="bg-white w-[340px] shadow-lg" style="border-radius: 30px;">
+                <img class="w-full" style="border-top-left-radius: 30px; border-top-right-radius: 30px;" src="curso1.jpg" alt="curso1">
+                <div class="p-8 pt-6">
+                    <label class="text-[19px]" style="font-weight:600;">Introducción a la programación</label>
+                    <div class="flex mt-4 mb-2.5 items-center">
+                        <img class="w-6" src="docente1.svg" alt="docente">
+                        <label class="pl-1.5 text-[15px]" style="color:#7D7D7D">Prof. César Martinez</label>
+                    </div>
+                    <div class="flex mb-12">
+                        <img class="w-5" src="level.svg" alt="nivel">
+                        <label class="pl-1.5 text-[15px]" style="color:#7D7D7D">MiniDevs</label>
+                    </div>
+                    <div class="flex flex-row justify-between">
+                        <div class="flex gap-2 items-center">
+                            <label class="bg-[#F7D7D0] text-[15px] pt-1.5 pb-1.5 pl-4 pr-4" style="font-weight:600; border-radius: 20px;">P.B.</label>
+                            <label class="text-[#0163E0]" style="font-weight:700;">Free</label>
+                        </div>
+                        <button class="bg-[#5C59C2] text-[15px] text-[#ffffff] p-2 pl-10 pr-10" style="font-weight:600; border-radius: 20px;">Ingresar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white w-[340px] shadow-lg" style="border-radius: 30px;">
+                <img class="w-full" style="border-top-left-radius: 30px; border-top-right-radius: 30px;" src="curso1.jpg" alt="curso1">
+                <div class="p-8 pt-6">
+                    <label class="text-[19px]" style="font-weight:600;">Introducción a la programación</label>
+                    <div class="flex mt-4 mb-2.5 items-center">
+                        <img class="w-6" src="docente1.svg" alt="docente">
+                        <label class="pl-1.5 text-[15px]" style="color:#7D7D7D">Prof. César Martinez</label>
+                    </div>
+                    <div class="flex mb-12">
+                        <img class="w-5" src="level.svg" alt="nivel">
+                        <label class="pl-1.5 text-[15px]" style="color:#7D7D7D">MiniDevs</label>
+                    </div>
+                    <div class="flex flex-row justify-between">
+                        <div class="flex gap-2 items-center">
+                            <label class="bg-[#F7D7D0] text-[15px] pt-1.5 pb-1.5 pl-4 pr-4" style="font-weight:600; border-radius: 20px;">P.B.</label>
+                            <label class="text-[#0163E0]" style="font-weight:700;">Free</label>
+                        </div>
+                        <button class="bg-[#5C59C2] text-[15px] text-[#ffffff] p-2 pl-10 pr-10" style="font-weight:600; border-radius: 20px;">Ingresar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="justify-center">
+            <h2 class="font-onest text-[19px] text-[#414141] mt-24" style="font-weight:700;" style="font-weight:700;">Documentos necesarios</h2>
+                        
+            <div class="flex justify-between">
+                <div class="w-2/3">
+                    <p class="font-onest text-[18px] text-[#414141] pt-5" style="line-height: 2;"><span class="underline">Declaración jurada: </span>Una declaración escrita y firmada por el solicitante, donde describa su situación económica y el motivo por el cual necesita la beca.
+                        <br><span class="underline">Documentos importantes: </span>Certificado de desempleo, Estado de cuenta bancario, Carta de referencia, etc.</p>
+                </div>
+                <div>
+                    <div class="bg-white p-9 w-[400px] shadow-lg" style="border-radius: 40px;">
+                        <div class="flex flex-col items-center justify-center w-full mx-auto p-6 bg-white border-2 border-dashed border-gray-300 rounded-lg shadow-md" id="dropZone">
+                            <img src="/upload.svg" class="w-12" />
+                            <!-- Texto -->
+                            <p class="text-gray-500 text-center">Arrastra tus archivos aquí<br />
+                                o <span class="text-blue-500 font-semibold cursor-pointer hover:underline" id="uploadLabel">selecciona uno</span>
+                            </p>
+                            <!-- Entrada de archivos invisible -->
+                            <input type="file" id="fileInput" class="hidden" multiple />
+                            <!-- Contenedor para visualizar archivos -->
+                            <div id="filePreview" class="mt-4 w-full text-sm text-gray-600"></div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const fileInput = document.getElementById('fileInput') as HTMLInputElement | null;
+    const uploadLabel = document.getElementById('uploadLabel')!;
+    const container = document.querySelector('div')!;
+    
+    if (fileInput) {
+        uploadLabel.addEventListener('click', () => fileInput.click());
+        
+        fileInput.addEventListener('change', (event) => {
+            const files = (event.target as HTMLInputElement).files;
+            if (files && files.length > 0) {
+                const fileList = Array.from(files).map(file => file.name).join(', ');
+                alert(`Archivos seleccionados: ${fileList}`);
+            }
+        });
+    }
+    
+    if (container) {
+        container.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            container.classList.add('border-blue-500');
+        });
+        
+        container.addEventListener('dragleave', () => {
+            container.classList.remove('border-blue-500');
+        });
+        container.addEventListener('drop', (event) => {
+            event.preventDefault();
+            container.classList.remove('border-blue-500');
+            const files = event.dataTransfer?.files;
+            if (files && files.length > 0) {
+                const fileList = Array.from(files).map(file => file.name).join(', ');
+                alert(`Archivos cargados: ${fileList}`);
+            }
+        });
+    }
+    });
+</script>
