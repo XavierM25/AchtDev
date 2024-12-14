@@ -1,13 +1,18 @@
 ---
 import '@/styles/global.css';
 import PaymentLayout from '@/layouts/PaymentLayout.astro';
+import HeaderLogin from '@/components/headerLogin.astro';
 
 import Header from '@/components/header.astro';
 import Products from '@/components/payment/products.astro';
+
+import cookie from 'cookie';
+const cookies = cookie.parse(Astro.request.headers.get('cookie') || '');
+const estaConectado = !!cookies.access_token;
 ---
 
 <PaymentLayout>
-    <Header />
+    {estaConectado ? <HeaderLogin /> : <Header />}
     <div class="mt-32">
         <Products />
     </div>

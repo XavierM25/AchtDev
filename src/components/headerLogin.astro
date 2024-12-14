@@ -1,0 +1,145 @@
+---
+import '@/styles/global.css';
+import cookie from 'cookie';
+const cookies = cookie.parse(Astro.request.headers.get('cookie') || '');
+const estaConectado = !!cookies.access_token;
+---
+
+<header
+    class="header fixed flex w-[900px] justify-center left-1/2 transform -translate-x-1/2 top-6 rounded-full bg-[#FFFFFF] shadow-md z-50"
+>
+    <nav class="flex justify-between w-full mx-10 h-[60px]">
+        <div class="flex flex-row items-center hover:animate-jiggle">
+            <a href="/">
+                <img
+                    src="/logo_general.svg"
+                    class="w-[55px]"
+                    alt="Logo FourDev"
+                />
+            </a>
+        </div>
+
+        <div class="flex items-center right-0 static">
+            <ul
+                class="flex flex-col space-y-4 lg:flex-row lg:space-y-0 lg:space-x-12 font-onest text-lg"
+                style="font-weight: 600;"
+            >
+                <li>
+                    <a
+                        href="/"
+                        class="nav-link text-[#222] hover:text-[#5c59c2] transition-colors duration-300"
+                        >Inicio</a
+                    >
+                </li>
+
+                <li>
+                    <a
+                        href="/beca"
+                        class="nav-link text-[#222] hover:text-[#5c59c2] transition-colors duration-300"
+                        >Beca</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="/cursos"
+                        class="nav-link text-[#222] hover:text-[#5c59c2] transition-colors duration-300"
+                        >Cursos</a
+                    >
+                </li>
+            </ul>
+        </div>
+
+        <div class="hidden lg:flex items-center space-x-4">
+            <!-- Icono de racha -->
+            <a href="/racha" class="group mr-3">
+                <img
+                    src="/icons/fire.svg"
+                    alt="Racha"
+                    class="w-7.5 h-7.5 group-hover:text-[#5C59C2] transition-colors duration-300"
+                />
+            </a>
+
+            <!-- Icono del carrito -->
+            <a href="/payment" class="relative group mr-52">
+                <img src="/icons/shop.svg" alt="Racha" class="w-7 h-7" />
+                <!-- Notificación en el carrito (opcional) -->
+                <span
+                    class="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full font-bold"
+                >
+                    1
+                </span>
+            </a>
+
+            <!-- Perfil de usuario -->
+            <button id="profile-btn" class="relative group">
+                <div
+                    class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center overflow-hidden group-hover:shadow-md ml-6"
+                >
+                    <img
+                        src="/profile.jpg"
+                        alt="Perfil"
+                        class="w-full h-full object-cover"
+                    />
+                </div>
+            </button>
+
+            <!-- Ventana flotante del perfil -->
+            <div
+                id="profile-dropdown"
+                class="absolute -right-14 mt-60 w- bg-white shadow-lg rounded-3xl overflow-hidden hidden"
+            >
+                <div class="min-w-0">
+                    <div class="flex items-center px-4 py-3 border-b">
+                        <img
+                            src="/perfil.svg"
+                            alt="Foto de usuario"
+                            class="w-10 h-10 rounded-full mr-3"
+                        />
+                        <div>
+                            <p class="font-semibold text-gray-700">
+                                Alexander Inostroza
+                            </p>
+                            <p class="text-sm text-gray-500">
+                                ainostroza@gmail.com
+                            </p>
+                        </div>
+                    </div>
+                    <ul class="text-sm text-gray-700">
+                        <li>
+                            <a
+                                href="/detailsprofile"
+                                class="block px-4 py-2 hover:bg-gray-100 transition-colors"
+                                >Ver perfil</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="text-red-600 block px-4 py-2 hover:bg-gray-100 transition-colors"
+                                onclick="document.cookie = 'access_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'; window.location.href='/'"
+                                >Cerrar sesión</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<script type="module">
+    // Obtener el botón del perfil y la ventana flotante
+    const profileBtn = document.getElementById('profile-btn');
+    const dropdown = document.getElementById('profile-dropdown');
+
+    // Alternar la visibilidad del dropdown cuando se hace clic en el perfil
+    profileBtn.addEventListener('click', () => {
+        dropdown.classList.toggle('hidden');
+    });
+
+    // Cerrar el dropdown si se hace clic fuera de él
+    document.addEventListener('click', (e) => {
+        if (!profileBtn.contains(e.target) && !dropdown.contains(e.target)) {
+            dropdown.classList.add('hidden');
+        }
+    });
+</script>

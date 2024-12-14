@@ -1,0 +1,571 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Biyarni", "Montserrat Alternates", sans-serif;
+    background-color: #E8EDEB;
+}
+
+.content-section {
+    display: flex;
+}
+
+.right-section {
+    padding: 2vw; /* Padding relativo al ancho de la pantalla */
+    display: flex;
+    flex-direction: column; /* Para que los elementos se apilen en pantallas pequeñas */
+    border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 18vh 0.7vw 2vh 0.7vw; /* Márgenes relativos a la altura y el ancho de la pantalla */
+    max-width: 60%; /* Ocupar el 100% del ancho disponible */
+    border: 1px solid #d8eaed;
+}   
+
+.video-and-info iframe {
+    margin-bottom: 3vh; /* Margen inferior relativo a la altura de la pantalla */
+    border-radius: 25px;
+    width: 100%; /* El iframe ocupará todo el ancho disponible */
+    height: 30vw; /* Relación de aspecto 16:9 basada en el ancho de la pantalla */
+}
+
+.video-and-info h2 {
+    color: #6188B3;
+    font-size: 22px;
+    margin: 0 0 3vh 1vw;
+}
+
+.teacher-info {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en múltiples líneas en pantallas más pequeñas */
+    align-items: center;
+    margin-bottom: 2vh;
+    width: 100%;
+}
+
+.profile-pic {
+    margin-right: 1vw;
+}
+
+.profile-pic img {
+    margin-left: 1vw;
+    width: 4vw; /* Ajuste relativo al ancho de la pantalla */
+    height: 4vw;
+    max-width: 80px; /* Limita el tamaño máximo de la imagen en pantallas grandes */
+    max-height: 80px;
+    border-radius: 50%;
+    background-color: #c6e6ff; /* Fondo temporal para la imagen */
+}
+
+.profile-info {
+    margin-right: 2vw;
+}
+
+.profile-info h3 {
+    font-size: 14px;
+    color: #6188B3
+}
+
+.numero-seguidores {
+    font-size: 14px; /* Tamaño de fuente relativo al ancho de la pantalla */
+    color: #6188B3
+}
+
+.profile-buttons {
+    display: flex;
+}
+
+.follow-btn {
+    background-color: #6188B3;
+    color: #fff;
+    padding: 1.3vh 1.8vw; /* Padding relativo */
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-right: 45%;
+}
+
+.follow-btn:hover {
+    background-color: #6188B3;
+}
+
+.favorite-icon img {
+    width: 5vw; /* Ajuste relativo al ancho de la pantalla */
+    height: 5vw;
+    max-width: 24px; /* Limita el tamaño máximo en pantallas grandes */
+    max-height: 24px;
+    cursor: pointer;
+    display: flex;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh; /* Espaciado vertical entre los elementos */
+    width: 100%;
+    margin: 0 0 1vh 0.2vw;
+    padding: 1vw;
+    font-size: 13px;
+}
+
+.info h4 {
+    margin-bottom: 1vh;
+}
+
+.tabs-section {
+    margin-left: 980px;
+    margin-right: 20px;
+    margin-top: -870px;
+    max-width: 100%;
+    background-color: white;
+    padding: 2vw;
+    padding-bottom: 193px;  
+    border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #acc9e8;
+}
+
+
+.scrolling-tabs {
+    max-height: 100px;
+    display: flex;
+    margin-bottom: 25px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    align-items: center;
+}
+
+.scrolling-tabs label {
+    font-family: "Montserrat Alternates", sans-serif;
+    font-size: 14px;
+}
+
+.scrolling-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.scrolling-tabs .scrolling-tab-active .scrolling-tab {
+    max-width: 90px;
+}
+
+.initial-tab.scrolling-tab {
+    margin: 0 10.5px 0 35px;
+}
+
+.initial-tab.scrolling-tab-active {
+    margin: 0 10.5px 0 35px;
+}
+
+.scrolling-tab-active {
+    background-color: #6188B3;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 22px;
+    color: white;
+    cursor: pointer;
+    margin-right: 10.5px;
+}
+
+.scrolling-tab {
+    background-color: #d2e9f8;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 22px;
+    color: #6188B3;
+    cursor: pointer;
+    margin-right: 10.5px;
+    position: relative;
+}
+
+.scrolling-tab,
+.scrolling-tab-active {
+    transition: background-color 300ms ease, color 300ms ease;
+}
+
+.scrolling-button {
+    background-color: #6188B3;
+    border: none;
+    padding: 5px 6px;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+}
+
+.scrolling-button-dynamic {
+    background-color: #6188B3;
+    border: none;
+    padding: 5px 6px;
+    color: white;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+#scrolling-button-dynamic {
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 100px;
+    right: 29px;
+}
+
+/* Opcional: Ajustes adicionales */
+.scrolling-button-dynamic.fixed {
+    position: fixed;
+    right: 10px;
+}
+
+#scrolling-button-left {
+    position: absolute;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 100px;
+}
+
+[data-tab="comentarios"] {
+    margin-right: 40px;
+}
+
+.tab-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.tab-content section {
+    position: absolute;
+    transition: all 600ms ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.90);
+    padding-bottom: 40px;
+    box-sizing: border-box;
+}
+
+#radio1,#radio2,#radio3,#radio4 {
+    display: none;
+}
+
+#radio1:checked ~ .tab-panel-1,
+#radio2:checked ~ .tab-panel-2,
+#radio3:checked ~ .tab-panel-3,
+#radio4:checked ~ .tab-panel-4{
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    position: static;
+}
+
+.scrolling-tab:hover {
+    background-color: #6188B3;
+     /* Color al pasar el mouse */
+}
+
+/* Hover effect para todas las pestañas */
+.scrolling-tab:hover,
+.scrolling-tab-active:hover {
+    background-color: rgb(148, 226, 253); /* Color al pasar el mouse */
+}
+
+.clases-section {
+    padding: 5px;
+    background-color: #acc9e8;
+    border-radius: 20px;
+    width: 100%; /* Ocupa todo el espacio disponible */
+    box-sizing: border-box;
+    word-wrap: break-word; /* Hace que las palabras largas pasen a la siguiente línea */
+}
+
+.clases-section h5 {
+    font-size: 14px;
+}
+
+.clases-section p {
+    font-size: 12px;
+}
+
+.inline {
+    border: 1px solid white;
+    padding: 10px 14px;
+    border-radius: 20px;
+}
+
+.tab-panel-1 {
+    padding: 0 17px 10px 17px;
+}
+
+.clase {
+    background-color: #acc9e8;
+    padding: 10px 19px;
+    margin: 10px 0;
+    border-radius: 20px;
+}
+
+.clase li {
+    font-size: 12px;
+    margin: 10px;
+}
+
+.description-clase ul li {
+    list-style: none;
+}
+
+.separador {
+    border: 1px solid #6188B3;
+}
+
+.quiz-question {
+    background-color: #1e1e2f; /* Fondo oscuro tipo "gamer" */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 14px 0px rgb(48, 189, 249), 0px 0px 19px 1px #00f; /* Efecto de sombra con neón */
+    width: 90%;
+    margin: 20px auto;
+    color: #fff;
+}
+
+.quiz-question h5 {
+    color: #0080ff; /* Color para las preguntas */
+}
+
+.options label {
+    display: block;
+    margin: 10px 8px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.quiz-question .options {
+    color: #ffffff;
+    font-size: 15px;
+    font-family: "Montserrat Alternates", sans-serif;
+    display: flex;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+    accent-color: #6999ff; /* Personalización del radio button */
+}
+
+.feedback {
+    margin-top: 10px;
+    font-size: 14px;
+    display: none; /* Ocultamos inicialmente la retroalimentación */
+}
+
+.correct {
+    color: #9197ff; /* Verde brillante */
+}
+
+.incorrect {
+    color: #ff0000; /* Rojo brillante */
+}
+
+.tab-panel-2 button {
+    background-color: #9ac9ff;
+    border: none;
+    padding: 10px 20px;
+    color: #000;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    margin-left: 22px;
+    box-shadow: 0px 0px 6px 0px #6e98b4;
+}
+
+.tab-panel-2 button:hover {
+    background-color: #1a30d3; /* Efecto hover */
+}
+
+
+
+.tab-panel-3 {
+    max-width: 600px;
+    margin: 5px 20px;
+    padding: 20px;
+    background-color: #eaf7fc;
+    border: 2px solid #8fa9ff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tab-panel-3 label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.toolbar {
+    margin-bottom: 10px;
+}
+
+.btn {
+    font-family: "Montserrat Alternates", sans-serif;
+    font-size: 10px;
+    background-color: #c3e0f3;
+    color: #000000;
+    border: 1px solid #0000005e;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-right: 2px;
+    margin-bottom: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #1d61b9;
+    color: white;
+}
+
+.editor {
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 15px;
+    min-height: 200px;
+    background-color: #f7f7f7;
+    white-space: pre-wrap; /* Permite el salto de línea */
+    font-size: 13px;
+
+    height: 300px; /* Altura fija */
+    max-height: 300px; /* Asegura que no crezca más allá de esto */
+    overflow-y: auto; /* Barra de desplazamiento vertical */;
+    outline: none;
+    resize: none; /* Evita que el usuario cambie el tamaño del área */
+}
+
+.editor ul li {
+    margin-left: 20px;
+}
+
+/* Estilo para la sección de comentarios */
+.tab-panel-4 {
+    margin: 5px 20px;
+}
+
+.comment-content p {
+    font-size: 13px;
+}
+
+.comment-section {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment-section input[type="text"] {
+    font-family: "Montserrat Alternates", sans-serif;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #c3e3ef;
+    border-radius: 25px;
+    font-size: 13px;
+    width: 90%;
+}
+
+.comment-section button {
+    padding: 10px;
+    margin-top: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: #1d61b9;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.comment-section button img {
+    width: 18px;
+    height: 18px;
+    padding-left: 3px;
+}
+
+.comment-section button:hover {
+    background-color: #686eb2;
+}
+
+.comments-list .comment {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    border: 1px solid #b2d0e1;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #fafafa;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.comment-content {
+    flex: 1;
+}
+
+.reply-btn, .like-btn, .dislike-btn {
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.reply-btn {
+    background-color: #7aa2ec;
+    margin-top: 10px;
+    color: #000000ad;
+}
+
+.like-btn{
+    background-color: #93d4b2;
+    color: #000;
+}
+
+.dislike-btn {
+    background-color: rgb(255, 152, 152);
+    color: #000;
+}
+
+.reply-btn:hover, .like-btn:hover, .dislike-btn:hover {
+    background-color: #ddd;
+}
+
+.like-dislike {
+    margin-top: 10px;
+}
+
+.reply-section {
+    margin-top: 10px;
+    padding-left: 20px;
+    border-left: 2px solid #ccc;
+}
+
+.reply-section textarea {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 90%;
+    resize: none;
+}
+
+.reply-section button {
+    background-color: #477974;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+

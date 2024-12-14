@@ -1,0 +1,126 @@
+---
+---
+<section class="tabs-section">
+    <div class="progress-bar">
+      <div class="progress" id="progress"></div>
+    </div>
+    <nav class="scrolling-tabs" aria-label="Navegación de pestañas">
+      <button class="scrolling-button" id="scrolling-button-left" aria-label="Ocultar/Mostrar comentarios">﹤</button>
+      <label class="scrolling-tab-active initial-tab" for="radio1" data-tab="contenido">Contenido</label>
+      <label class="scrolling-tab" for="radio2" data-tab="actividades">Actividades</label>
+      <label class="scrolling-tab" for="radio3" data-tab="notebook">NoteBook</label>
+      <button class="scrolling-button-dynamic" id="scrolling-button-dynamic" aria-label="Ocultar/Mostrar comentarios">﹥</button>
+      <label class="scrolling-tab" for="radio4" data-tab="comentarios">Comentarios</label>
+    </nav>
+    <!-- Contenido dinámico -->
+    <article class="tab-content">
+      <!-- Contenido por defecto (contenido de videos) -->
+      <input type="radio" name="radio" id="radio1" checked>
+      <section class="tab-panel-1" id="Clase">
+          <div class="clases-section">
+              <div class="inline">
+                  <h5>Clase 1</h5>
+                  <p>Introducción a JavaScript</p>
+              </div>
+          </div>
+          <div class="clase">
+              <div class="description-clase">
+                  <ul>
+                      <li>1. Elementos Básicos</li>
+                      <div class="separador"></div>
+                      <li>2. Elementos avanzados</li>
+                      <div class="separador"></div>
+                      <li>3. Resumen</li>
+                  </ul>
+              </div>
+          </div>
+          <div class="clases-section">
+              <div class="inline">
+                  <h5>Clase 2</h5>
+                  <p>Empezando a usar JavaScript</p>
+              </div>
+          </div>
+          <div class="clase">
+              <div class="description-clase">
+                  <ul>
+                      <li>1. Como descargar</li>
+                      <div class="separador"></div>
+                      <li>2. Conociendo la interfaz</li>
+                      <div class="separador"></div>
+                      <li>3. Resumen</li>
+                  </ul>
+              </div>
+          </div>
+      </section>
+
+      <!-- Ejercicios -->
+      <input type="radio" name="radio" id="radio2">
+      <section class="tab-panel-2" id="excercies">
+          <div class="quiz-question" id="question1">
+              <h5>Pregunta 1: ¿Qué es JavaScript?</h5>
+              <div class="options">
+                  <label><input type="radio" name="q1" value="incorrect"> Un lenguaje de marcado</label><br>
+                  <label><input type="radio" name="q1" value="correct"> Un lenguaje de programación</label><br>
+                  <label><input type="radio" name="q1" value="incorrect"> Una hoja de estilos</label>
+              </div>
+              <div class="feedback" id="feedback1"></div>
+          </div>
+      
+          <!-- Pregunta 2 -->
+          <div class="quiz-question" id="question2">
+              <h5>Pregunta 2: ¿Cuál es la sintaxis correcta para una función en JavaScript?</h5>
+              <div class="options">
+                  <label><input type="radio" name="q2" value="incorrect"> `def myFunction()`</label><br>
+                  <label><input type="radio" name="q2" value="correct"> `function myFunction()`</label><br>
+                  <label><input type="radio" name="q2" value="incorrect"> `func myFunction()`</label>
+              </div>
+              <div class="feedback" id="feedback2"></div>
+          </div>
+      
+          <!-- Botón para verificar respuestas -->
+          <button onclick="checkAnswers()">Verificar respuestas</button>
+      </section>
+
+      <!-- Notebook -->
+      <input type="radio" name="radio" id="radio3">
+      <section class="tab-panel-3" id="notebook">
+          <form>
+              <label for="notas">Escribe tus apuntes aquí:</label>
+              <div class="toolbar">
+                  <button type="button" class="btn" onclick="formatText('bold')">B</button>
+                  <button type="button" class="btn" onclick="formatText('underline')">U</button>
+                  <button type="button" class="btn" onclick="formatText('italic')">I</button>
+                  <button type="button" class="btn" onclick="formatText('insertUnorderedList')">Viñetas</button>
+                  <button type="button" class="btn" onclick="formatText('backColor', 'yellow')">Resaltar</button>
+              </div>
+              <div class="editor" contenteditable="true" id="notas"  ></div>
+          </form>
+      </section>
+
+      <!-- Comentarios -->
+      <input type="radio" name="radio" id="radio4">
+      <section class="tab-panel-4" id="comentarios">
+          <form class="comment-section" id="commentForm">
+              <input type="text" id="comentario" name="comentario" placeholder="Ingresa tu comentario">
+              <button type="submit" id="btnSend"><img src="../img/send.png" alt="enviar msg"></button>
+          </form>
+      
+          <div class="comments-list" id="commentsList">
+              <!-- Comentarios iniciales -->
+              <div class="comment">
+                  <img src="https://via.placeholder.com/50" alt="User Profile" class="profile-pic">
+                  <div class="comment-content">
+                      <p><strong>Usuario 1:</strong> Gran clase, me encantó.</p>
+                      <button class="reply-btn">Responder</button>
+                      <div class="like-dislike">
+                          <button class="like-btn">Útil</button>
+                          <button class="dislike-btn">No útil</button>
+                      </div>
+                      <div class="reply-section"></div>
+                  </div>
+              </div>
+          </div>
+      </section>
+  </article>
+  </section>
+  

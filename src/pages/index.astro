@@ -1,18 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '@/components/header.astro';
+import HeaderLogin from '@/components/headerLogin.astro';
 import Main from '@/components/main/index_main.astro';
 import Carrusel from '@/components/main/index_carrusel.astro';
 import Planes from '@/components/planes/index_planes.astro';
 import FAQ from '@/components/main/index_FAQ.astro';
 import Footer from '@/components/footer/footer.astro';
 import { VelocityScroll } from '@/components/ui/scroll-based-velocity';
-
 import '@/styles/global.css';
+
+import cookie from 'cookie';
+const cookies = cookie.parse(Astro.request.headers.get('cookie') || '');
+const estaConectado = !!cookies.access_token;
 ---
 
 <Layout>
-	<Header />
+	{estaConectado ? <HeaderLogin /> : <Header />}
 	<div class="mt-20">
 		<Main />
 	</div>
@@ -39,3 +43,25 @@ import '@/styles/global.css';
 		<Footer />
 	</div>
 </Layout>
+
+<script define:vars={{ estaConectado }}>
+	import cookie from 'cookie';
+	const cookies = cookie.parse(document.cookie || '');
+
+	// Obtén el token de las cookies
+	const token = cookies['access_token'];
+	let age = 0;
+
+	if (token) {
+		// Decodifica el payload del token JWT
+		const payload = JSON.parse(atob(token.split('.')[1]));
+		age = payload.age;
+
+		// Redirige según la edad
+		if (age >= 0 && age <= 9) {
+			Astro.redirect('/index_niños');
+		} else if (age >= 10 && age <= 17) {
+			Astro.redirect('/index_adolescentes');
+		}
+	}
+</script>

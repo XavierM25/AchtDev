@@ -1,8 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Curso from '@/components/index_cursos.astro'
+import Curso from '@/components/index_cursos.astro';
+import HeaderLogin from '@/components/headerLogin.astro';
+import Header from '@/components/header.astro';
+import Footer from '@/components/footer/footer.astro';
+
+import cookie from 'cookie';
+const cookies = cookie.parse(Astro.request.headers.get('cookie') || '');
+const estaConectado = !!cookies.access_token;
 ---
 
 <Layout>
-	<Curso />
+	{estaConectado ? <HeaderLogin /> : <Header />}
+	<div class="animate-fade-in">
+		<Curso />
+		<Footer />
+	</div>
 </Layout>
